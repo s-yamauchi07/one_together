@@ -1,0 +1,87 @@
+header {
+  height: 5rem;
+  background-color: #ffc93c;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1.5rem;
+}
+
+#header-icon {
+  /* line-height: 5rem; */
+  color:#31326f;
+  display: flex;
+  align-items: center;
+}
+
+#header-lists {
+  display: flex;
+  justify-content: space-around;
+  list-style: none;
+}
+
+.header-list {
+  text-decoration: none;
+  margin-left: 1.5rem;
+  color: #31326f;
+  font-weight: bold;
+}
+
+footer {
+  height: 5rem;
+  background-color: #eee;
+}
+
+/* welcomeページ */
+#home {
+  height: 100vh;
+}
+
+#main-view{
+  height: 100%;
+  width: 100%;
+  background: url("main_view.jpg") no-repeat;
+  background-size:cover;
+  position: relative;
+}
+
+#main-view::before {
+  content: '';
+  background-color: rgba(0, 0, 0, 0.4);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.search-window {
+  width: 30%;
+  position: absolute;
+  top: 20%;
+  left: 10%;
+}
+
+#keyword-window  {
+  width: 100%;
+  padding: 0.625rem;
+  border: 1px none;
+  border-radius: 3.125rem;
+}
+
+#main-title {
+  background-color: #fff;
+  font-size: 1.5rem;
+}
+
+footer {
+  height: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+footer p {
+  font-size: 0.5rem;
+}
