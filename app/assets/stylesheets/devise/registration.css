@@ -1,0 +1,16 @@
+.registration-wrapper {
+  height: calc(100vh - 8rem);
+  display: flex;
+  align-items: center;
+  background-color: #FEFBF3;
+}
+
+.registration-card {
+  background-color: #F8F0DF;
+  width: 50%;
+  margin: 0 auto;
+  padding: 1.25rem;
+}
+
+.field {
+}
