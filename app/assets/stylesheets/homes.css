@@ -1,6 +1,6 @@
 header {
   height: 5rem;
-  background-color: #ffc93c;
+  background-color: #79B4B7;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -9,7 +9,7 @@ header {
 
 #header-icon {
   /* line-height: 5rem; */
-  color:#31326f;
+  color:#F8F0DF;;
   display: flex;
   align-items: center;
 }
@@ -23,7 +23,7 @@ header {
 .header-list {
   text-decoration: none;
   margin-left: 1.5rem;
-  color: #31326f;
+  color: #F8F0DF;
   font-weight: bold;
 }
 
@@ -34,7 +34,7 @@ footer {
 
 /* welcomeページ */
 #home {
-  height: 100vh;
+  height: calc(100vh - 8rem);
 }
 
 #main-view{

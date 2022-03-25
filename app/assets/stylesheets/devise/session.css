@@ -1,0 +1,40 @@
+.session-wrapper {
+  height: calc(100vh - 8rem);
+  display: flex;
+  align-items: center;
+  background-color: #FEFBF3;
+}
+
+.session-card {
+  background-color: #F8F0DF;
+  width: 40%;
+  margin: 0 auto;
+  padding: 2rem;
+  border-radius: 1.5625rem;
+}
+
+.session-card form {
+  width: 100%;
+}
+
+#user_email,
+#user_password {
+  width: 50%;
+  margin-top: 0.5rem;
+  border: none;
+}
+
+.login-btn {
+  border-radius: 1.5625rem;
+  border:#79B4B7;
+  background-color: #79B4B7;
+  color: #F8F0DF;
+  padding: 0.625rem 1.25rem;
+  margin: 1.25rem auto 0;
+  display: block;
+}
+
+.flash-message {
+  color: #C74B50;
+  margin-bottom: 0.5rem;
+}
