@@ -13,6 +13,17 @@
   border-radius: 1.5625rem;
 }
 
+.session-card form {
+  width: 100%;
+}
+
+#user_email,
+#user_password {
+  width: 50%;
+  margin-top: 0.5rem;
+  border: none;
+}
+
 .login-btn {
   border-radius: 1.5625rem;
   border:#79B4B7;

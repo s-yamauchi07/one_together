@@ -21,9 +21,15 @@
 }
 
 .field {
-  margin-bottom: 0.625rem;
+  margin-bottom: 0.9375rem;
   color:#79B4B7;
   font-weight: bold;
+}
+
+.registration-card input,
+.registration-card select {
+  margin-top: 0.3rem;
+  border: none;
 }
 
 #user_dog_type_id {
