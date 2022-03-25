@@ -34,7 +34,7 @@ footer {
 
 /* welcomeページ */
 #home {
-  height: 100vh;
+  height: calc(100vh - 8rem);
 }
 
 #main-view{
