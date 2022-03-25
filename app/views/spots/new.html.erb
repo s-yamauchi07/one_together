@@ -1,0 +1,40 @@
+<h2>新規登録ページ</h2>
+  <%= form_with model: @spot, id:"registration-form", local: true  do |f|  %>
+  <%= f.text_field:name, id:"place-name"%>
+  <%= f.text_field:address, id:"place-address" %>
+  <%= f.text_field:phone_number, id:"place-number" %>
+  <%= f.text_field:website, id:"place-site" %>
+  <input id="latlng" name="latlng" type="hidden">
+  <%= f.submit%>
+  <% end %>
+
+<p>スポット名入力</p>
+<input type="text" id="search-window" >
+<input type="button" value="search" id="search-btn">
+
+<div id="map-wrapper">
+  <div id="map-detail">
+    <table>
+      <tr>
+        <th>スポット名</th>
+        <td id="spot-name"></td>
+      </tr>
+      <tr>
+        <th>住所</th>
+        <td id="spot-address"></td>
+      </tr>
+      <tr>
+        <th>電話番号</th>
+        <td id="spot-phonenumber"></td>
+      </tr>
+      <tr>
+        <th>webページ</th>
+        <td id="spot-url"></td>
+      </tr>
+    </table>
+    <input type="submit" value="登録する" id="registration">
+  </div>
+  <div id="map"><div>
+</div>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=<%="#{ENV['GOOGLE_MAPS_API']}"%>&libraries=places" async defer></script>

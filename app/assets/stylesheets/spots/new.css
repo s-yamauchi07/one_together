@@ -1,0 +1,38 @@
+#map-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-around;
+}
+
+#map {
+  width: 50%;
+  height: 25rem;
+}
+
+#map-detail {
+  width: 40%;
+  height: 25rem;
+}
+
+table{
+  width: 100%;
+  border-collapse: collapse;
+}
+
+table tr{
+  border-bottom: solid 2px #F8F0DF;
+}
+
+table tr:last-child{
+  border-bottom: none;
+}
+
+table th{
+  position: relative;
+  text-align: left;
+  width: 30%;
+  background-color: #79B4B7;
+  color: #F8F0DF;;
+  text-align: center;
+  padding: 10px 0;
+}
