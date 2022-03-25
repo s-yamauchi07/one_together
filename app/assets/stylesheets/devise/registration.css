@@ -1,16 +1,55 @@
 .registration-wrapper {
-  height: calc(100vh - 8rem);
+  /* height: calc(100vh - 8rem); */
   display: flex;
   align-items: center;
   background-color: #FEFBF3;
+  padding: 30px 0;
 }
 
 .registration-card {
   background-color: #F8F0DF;
-  width: 50%;
-  margin: 0 auto;
-  padding: 1.25rem;
+  width: 40%;
+  margin: auto;
+  padding: 2rem;
+  border-radius: 1.5625rem;
+  height: 100%;
+}
+
+.header-name {
+  color:#79B4B7;
+  margin-bottom: 1.25rem;
 }
 
 .field {
+  margin-bottom: 0.625rem;
+  color:#79B4B7;
+  font-weight: bold;
+}
+
+#user_dog_type_id {
+  height: 1.875rem;
+}
+
+.sign-up-btn {
+  border-radius: 1.5625rem;
+  border:#79B4B7;
+  background-color: #79B4B7;
+  color: #F8F0DF;
+  padding: 0.625rem 1.25rem;
+  margin: 1.25rem auto 0;
+  display: block;
+}
+
+/* エラーメッセージ */
+#error_explanation h2 {
+  color: #C74B50;
+  font-size: 1rem;
+}
+
+#error_explanation ul {
+  color: #C74B50;
+  font-size: 0.5rem;
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0;
 }
