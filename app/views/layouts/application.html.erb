@@ -15,7 +15,7 @@
       <p id="header-icon"><i class="fa-solid fa-dog fa-3x"></i></p>
       <ul id="header-lists">
         <% if user_signed_in? %>
-          <li><%= link_to 'マイページ', '#' , class:'header-list' %></li>
+          <li><%= link_to current_user.nickname, '#' , class:'header-list' %></li>
           <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class:'header-list' %></li>
           <li><%= link_to 'スポット登録', '#' , class:'header-list'%></li>
         <% else %>
