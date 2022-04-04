@@ -19,10 +19,15 @@ belongs_to: gone_place
 |Column            |Type    |Options                   |
 |------------------|--------|--------------------------|
 |name              |string  |null: false               |
-|longitude         |float   |null: false, unique: true |
-|encrypted_password|float   |null: false, unique: true |
-|dog_name          |string  |                          |
-|dog_type_id       |integer |                          |
+|address           |string  |null: false               |
+|latitude          |float   |null: false               |
+|longitude         |float   |null: false               |
+|address           |string  |null: false               |
+|phone_number      |string  |null: false               |
+|prefecture_id     |integer |null: false               |
+|spot_type _id     |integer |null: false               |
+|detail_id         |integer |null: false               |
+|user_id           |references|null: false, foreign_key: true|
 
 # Association
 belongs_to :user

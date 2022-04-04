@@ -1,0 +1,119 @@
+#map-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-around;
+}
+
+#map {
+  width: 50%;
+  height: 25rem;
+}
+
+#map-detail {
+  width: 40%;
+  height: 25rem;
+}
+
+table{
+  width: 100%;
+  border-collapse: collapse;
+}
+
+table tr{
+  border-bottom: solid 2px #F8F0DF;
+}
+
+table tr:last-child{
+  border-bottom: none;
+}
+
+table th{
+  position: relative;
+  text-align: left;
+  width: 30%;
+  background-color: #79B4B7;
+  color: #F8F0DF;;
+  text-align: center;
+  padding: 0.625rem 0;
+}
+
+/* モーダルウィンドウ */
+#registration-form {
+  width: 60%;
+  height: 100%;
+  margin: 3.125rem auto;
+  padding: 3.125rem;
+  display: none;
+  border: 1px solid #F8F0DF;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+
+#registration-form table input{
+  border: none;
+  width: 100%;
+}
+
+#registration-form td {
+  padding: 0.3125rem 0.625rem;
+}
+
+#place-image {
+  height: 6.25rem;
+  text-align: center;
+
+}
+
+#place-image p {
+  margin-top: 0.625rem;
+  font-size: 0.375rem;
+}
+
+#create-spot-btn {
+  width: 12.5rem;
+  border: none;
+  background-color: #79B4B7;
+  color:#F8F0DF;
+  border-radius: 25px;
+  padding: 0.625rem 0;
+  margin: 1.25rem auto 0.625rem;
+}
+
+/* 検索画面 */
+h2 {
+  text-align: center;
+  color:#79B4B7;
+  padding: 1.25rem;
+}
+
+.input-area {
+  padding: 0 3.125rem; 
+}
+
+#search-btn {
+  background-color: #79B4B7;
+  color:#F8F0DF;
+  border: none;
+  border-radius: 25px;
+  padding: 0.3125rem 0.625rem;
+  margin-left: 0.625rem;
+}
+
+#map-wrapper {
+  padding: 20px;
+}
+
+#map-detail {
+  border: 1px solid #F8F0DF;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  padding: 0.625rem;
+}
+
+#registration {
+  background-color: #79B4B7;
+  color:#F8F0DF;
+  border: none;
+  border-radius: 25px;
+  padding: 0.3125rem 0.625rem;
+  margin: 1.875rem auto;
+  display: block;
+}
