@@ -87,6 +87,7 @@ GEM
       warden (~> 1.2.3)
     erubi (1.10.0)
     ffi (1.15.4)
+    geocoder (1.7.5)
     globalid (1.0.0)
       activesupport (>= 5.0)
     google_places (2.0.0)
@@ -243,6 +244,7 @@ DEPENDENCIES
   byebug
   capybara (>= 2.15)
   devise
+  geocoder
   google_places
   image_processing (~> 1.2)
   jbuilder (~> 2.7)
