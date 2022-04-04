@@ -1,19 +1,62 @@
-<h2>新規登録ページ</h2>
+<%# モーダルウィンドウ %>
+<div id="registration-modal">
   <%= form_with model: @spot, id:"registration-form", local: true  do |f|  %>
-  <%= f.text_field:name, id:"place-name"%>
-  <%= f.text_field:address, id:"place-address" %>
-  <%= f.text_field:phone_number, id:"place-number" %>
-  <%= f.text_field:website, id:"place-site" %>
-  <input id="latlng" name="latlng" type="hidden">
-  <%= f.submit%>
-  <% end %>
+  <%= render 'shared/error_messages', model: f.object %>
+  <table>
+    <tr>
+      <th>画像</th>
+      <td id="place-image">
+        <%= f.label :spot_image,class: "fa-solid fa-camera fa-3x" do %>
+        <p>画像を添付してください<p>
+        <%= f.file_field :spot_image, style: "display: none;" %>
+        <% end %>
+      </td>
+    </tr>
+    <tr>
+      <th>スポット名</th>
+      <td><%= f.text_field :name, id:"place-name"%></td>
+    </tr>
+    <tr>
+      <th>住所</th>
+      <td><%= f.text_field :address, id:"place-address" %></td>
+    </tr>
+    <tr>
+      <th>電話番号</th>
+      <td><%= f.text_field :phone_number, id:"place-number" %></td>
+    </tr>
+    <tr>
+      <th>webサイト</th>
+      <td><%= f.text_field :website, id:"place-site" %></td>
+    </tr>
+    <tr>
+      <th>都道府県</th>
+      <td><%= f.collection_select(:prefecture_id, Prefecture.all, :id, :name, {}, {}) %></td>
+    </tr>
+    <tr>
+      <th>施設タイプ</th>
+      <td><%= f.collection_select(:spot_type_id, SpotType.all, :id, :name, {}, {}) %></td>
+    </tr>
+    <tr>
+      <th>同伴</th>
+      <td><%= f.collection_select(:dog_permission_id, DogPermission.all, :id, :name, {}, {}) %></td>
+    </tr>
+  </table>
 
-<p>スポット名入力</p>
-<input type="text" id="search-window" >
-<input type="button" value="search" id="search-btn">
+  <%= f.submit id:"create-spot-btn"%>
+  <% end %>
+</div>
+<%# モーダルウィンドウ %>
+
+<h2>新規登録ページ</h2>
+<div class="input-area">
+  <p>スポット名入力</p>
+  <input type="text" id="search-window" >
+  <input type="button" value="search" id="search-btn">
+</div>
 
 <div id="map-wrapper">
   <div id="map-detail">
+    <h2>スポット詳細</h2>
     <table>
       <tr>
         <th>スポット名</th>
