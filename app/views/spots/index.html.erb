@@ -1,0 +1,31 @@
+<div class="search-area">
+</div>
+<div class="index-area">
+  <h2>新着スポット</h2>
+  <div class="slider">
+  <button type="button" class="slick-prev"></button>
+      <% @spots.each do |spot| %>
+        <div class="contain">
+          <%= image_tag spot.spot_image, class:"spot-image" %>
+          <span><%= spot.name %></span>
+          <span><i class="fa-solid fa-location-dot"></i><%= spot.address %></span>
+        </div>
+      <% end %> 
+    <button type="button" class="slick-next"></button>
+  </div>
+</div>
+
+<div class="search-container">
+  <h2>エリア検索</h2>
+  <ul class="search-list-area">
+    <li id="hokkaido" class="area"><span>北海道</span></li>
+    <li id="tohoku" class="area"><span>東北</span></li>
+    <li id="kanto" class="area"><span>関東</span></li>
+    <li id="chubu" class="area"><span>中部</span></li>
+    <li id="kinki" class="area"><span>近畿</span></li>
+    <li id="chugoku" class="area"><span>中国</span></li>
+    <li id="shikoku" class="area"><span>四国</span></li>
+    <li id="kyusyu" class="area"><span>九州</span></li>
+    <li id="okinawa" class="area"><span>沖縄</span></li>
+  </ul>
+</div>
