@@ -1,5 +1,6 @@
 class SpotsController < ApplicationController
   def index
+    @spots = Spot.all.order(created_at: :desc).limit(5)
   end
 
   def new
@@ -9,7 +10,7 @@ class SpotsController < ApplicationController
   def create
     @spot = Spot.new(set_address)
     if @spot.save
-      redirect_to root_path
+      redirect_to spots_path
     else
       render :new
     end
