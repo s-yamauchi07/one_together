@@ -27,6 +27,7 @@ belongs_to: gone_place
 |prefecture_id     |integer |null: false               |
 |spot_type _id     |integer |null: false               |
 |detail_id         |integer |null: false               |
+|comment           |text    |null: false               |
 |user_id           |references|null: false, foreign_key: true|
 
 # Association
@@ -53,7 +54,7 @@ belongs_to :spot
 |spot_id           |references  |null: false, foreign_key: true |
 
 # Association
-belongs_to :favorite
+belongs_to :user
 belongs_to :spot
 
 ## comments table
