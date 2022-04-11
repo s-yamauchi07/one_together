@@ -1,0 +1,49 @@
+<div id="edit-form">
+  <%= form_with model: @spot, local: true  do |f|  %>
+  <%= render 'shared/error_messages', model: f.object %>
+  <table>
+    <tr>
+      <th>画像</th>
+      <td id="edit-image">
+        <%= f.label :spot_image,class: "fa-solid fa-camera fa-3x" do %>
+        <p>画像を添付してください<p>
+        <%= f.file_field :spot_image, style: "display: none;" %>
+        <% end %>
+      </td>
+    </tr>
+    <tr>
+      <th>スポット名</th>
+      <td><%= f.text_field :name, id:"place-name"%></td>
+    </tr>
+    <tr>
+      <th>住所</th>
+      <td><%= f.text_field :address, id:"place-address" %></td>
+    </tr>
+    <tr>
+      <th>電話番号</th>
+      <td><%= f.text_field :phone_number, id:"place-number" %></td>
+    </tr>
+    <tr>
+      <th>webサイト</th>
+      <td><%= f.text_field :website, id:"place-site" %></td>
+    </tr>
+    <tr>
+      <th>都道府県</th>
+      <td><%= f.collection_select(:prefecture_id, Prefecture.all, :id, :name, {}, {}) %></td>
+    </tr>
+    <tr>
+      <th>施設タイプ</th>
+      <td><%= f.collection_select(:spot_type_id, SpotType.all, :id, :name, {}, {}) %></td>
+    </tr>
+    <tr>
+      <th>同伴</th>
+      <td><%= f.collection_select(:dog_permission_id, DogPermission.all, :id, :name, {}, {}) %></td>
+    </tr>
+      <th>口コミ</th>
+      <td><%= f.text_area :comment, id:"place-comment" %></td>
+    </tr>
+  </table>
+
+  <%= f.submit id:"edit-spot-btn"%>
+  <% end %>
+</div>
