@@ -1,5 +1,5 @@
 class SpotsController < ApplicationController
-  before_action :set_spot, only: [:show, :edit, :update]
+  before_action :set_spot, only: [:show, :edit, :update, :destroy]
 
   def index
     @spots = Spot.all.order(created_at: :desc).limit(5)
@@ -33,6 +33,14 @@ class SpotsController < ApplicationController
     end
   end
 
+  def destroy
+    if @spot.destroy
+      flash[:notice] = "スポット削除をしました。"
+      redirect_to spots_path
+    else
+      render :show
+    end
+  end
 
 
   private
