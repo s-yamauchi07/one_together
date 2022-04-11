@@ -43,6 +43,7 @@ ActiveRecord::Schema.define(version: 2022_03_25_083858) do
     t.integer "prefecture_id", null: false
     t.integer "spot_type_id", null: false
     t.integer "dog_permission_id", null: false
+    t.text "comment", null: false
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

@@ -10,6 +10,7 @@ class CreateSpots < ActiveRecord::Migration[6.0]
       t.integer :prefecture_id,     null: false  
       t.integer :spot_type_id,      null: false
       t.integer :dog_permission_id, null: false
+      t.text    :comment,          null: false
       t.references :user, null: false, foreign_key: true
       t.timestamps
     end

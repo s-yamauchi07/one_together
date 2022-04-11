@@ -40,6 +40,9 @@
       <th>同伴</th>
       <td><%= f.collection_select(:dog_permission_id, DogPermission.all, :id, :name, {}, {}) %></td>
     </tr>
+      <th>口コミ</th>
+      <td><%= f.text_field :comment, id:"place-comment" %></td>
+    </tr>
   </table>
 
   <%= f.submit id:"create-spot-btn"%>
