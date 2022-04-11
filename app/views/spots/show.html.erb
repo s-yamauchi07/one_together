@@ -6,7 +6,9 @@
         <%= link_to edit_spot_path(@spot), class:"edit btn" do %>
           <i class="fa-solid fa-pen-to-square fa-2x"></i>
         <% end %>
-        <div class="delete btn"><i class="fa-solid fa-trash-can fa-2x"></i></div>
+        <%= link_to spot_path(@spot), method: :delete, class:"delete btn" do %>
+          <i class="fa-solid fa-trash-can fa-2x"></i>
+        <% end %>
       </div>
     <% end %>
   </div>
