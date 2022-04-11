@@ -1,0 +1,3 @@
+console.log('destroy')
+
+$('#likes_buttons_<%= @spot.id %>').html("<%= j(render partial: 'favorites/favorites', locals: {spot: @spot}) %>");

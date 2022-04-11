@@ -1,0 +1,4 @@
+<%# likes_buttons_<%= @blog.id %><%# この部分のHTMLだけ、renderで部分的に更新するという処理です %>
+console.log('create')
+
+$('#likes_buttons_<%= @spot.id %>').html("<%= j(render partial: 'favorites/favorites', locals: {spot: @spot}) %>");
