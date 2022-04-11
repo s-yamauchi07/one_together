@@ -1,0 +1,57 @@
+<div class="spot-details-wrapper">
+  <div class="top-wrapper">
+    <h2 class="spot-name"><%= @spot.name %></h2>
+    <% if current_user == @spot.user %>
+      <div class="contributor-btn">
+        <div class="edit btn"><i class="fa-solid fa-pen-to-square fa-2x"></i></div>
+        <div class="delete btn"><i class="fa-solid fa-trash-can fa-2x"></i></div>
+      </div>
+    <% end %>
+  </div>
+  <div class="spot-details">
+    <%= image_tag(@spot.spot_image,class:"show-spot-image") %>
+    <div class="contributor-info">
+      <div class="contributor-prof">
+        <%= image_tag(@spot.user.dog_image, id:"user_image") %>
+        <div class="contributor-detail">
+          <p><i class="fa-solid fa-user"></i><%= @spot.user.nickname %></p>
+          <p><i class="fa-solid fa-dog"></i><%= @spot.user.dog_name %></p>
+          <p><i class="fa-solid fa-paw"></i><%= @spot.user.dog_type.name %></p>
+        </div>
+      </div>
+      <div class="contributor-comment">
+        <%= @spot.comment %>
+      </div>
+    </div>
+  </div>
+
+  <h2>ABOUT SPOT</h2>
+  <table class="spot-addresses">
+    <tr>
+      <th>住所</th>
+      <td><%= @spot.address %></td>
+    <tr>
+    <tr>
+      <th>電話番号</th>
+      <td><%= @spot.phone_number %></td>
+    <tr>
+    <tr>
+      <th>ウェブサイト</th>
+      <td><%= @spot.website %></td>
+    <tr>
+    <tr>
+      <th>スポットタイプ</th>
+      <td><%= @spot.spot_type.name %></td>
+    <tr></tr>
+    <tr>
+      <th>同伴</th>
+      <td><%= @spot.dog_permission.name %></td>
+    <tr>
+  </table>
+  <div id="spot-map"></div>
+  <div class="comments_lists">
+    <h2>COMMENT</h2>
+  </div>
+</div>
+
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=<%="#{ENV['GOOGLE_MAPS_API']}"%>&libraries=places"></script>

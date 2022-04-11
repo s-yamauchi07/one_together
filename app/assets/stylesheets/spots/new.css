@@ -12,11 +12,14 @@
 #map-detail {
   width: 40%;
   height: 25rem;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  padding: 0.625rem;
 }
 
 table{
   width: 100%;
   border-collapse: collapse;
+  color:#79B4B7;
 }
 
 table tr{
@@ -31,8 +34,7 @@ table th{
   position: relative;
   text-align: left;
   width: 30%;
-  background-color: #79B4B7;
-  color: #F8F0DF;;
+  color: #79B4B7;
   text-align: center;
   padding: 0.625rem 0;
 }
@@ -100,12 +102,6 @@ h2 {
 
 #map-wrapper {
   padding: 20px;
-}
-
-#map-detail {
-  border: 1px solid #F8F0DF;
-  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
-  padding: 0.625rem;
 }
 
 #registration {
