@@ -3,7 +3,9 @@
     <h2 class="spot-name"><%= @spot.name %></h2>
     <% if current_user == @spot.user %>
       <div class="contributor-btn">
-        <div class="edit btn"><i class="fa-solid fa-pen-to-square fa-2x"></i></div>
+        <%= link_to edit_spot_path(@spot), class:"edit btn" do %>
+          <i class="fa-solid fa-pen-to-square fa-2x"></i>
+        <% end %>
         <div class="delete btn"><i class="fa-solid fa-trash-can fa-2x"></i></div>
       </div>
     <% end %>

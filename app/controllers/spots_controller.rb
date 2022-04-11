@@ -1,5 +1,5 @@
 class SpotsController < ApplicationController
-  before_action :set_spot, only: :show
+  before_action :set_spot, only: [:show, :edit, :update]
 
   def index
     @spots = Spot.all.order(created_at: :desc).limit(5)
@@ -20,6 +20,17 @@ class SpotsController < ApplicationController
 
   def show
     gon.spot = @spot
+  end
+
+  def edit
+  end
+
+  def update
+    if @spot.update(set_address)
+      redirect_to spot_path(@spot)
+    else
+      render :edit
+    end
   end
 
 
