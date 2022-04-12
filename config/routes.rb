@@ -3,5 +3,6 @@ Rails.application.routes.draw do
   root to: "homes#index"
   resources :spots do
     resources :favorites, only: [:create, :destroy]
+    resources :gone_places, only: [:create, :destroy]
   end
 end
