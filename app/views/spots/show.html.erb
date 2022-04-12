@@ -13,7 +13,19 @@
     <% end %>
   </div>
   <div class="spot-details">
-    <%= image_tag(@spot.spot_image,class:"show-spot-image") %>
+    <div class="spot-image-wrapper">
+      <div class="show-spot-image">
+        <%= image_tag(@spot.spot_image) %>
+      </div>
+      <% if current_user != @spot.user %>
+        <div id="favorites_buttons_<%= @spot.id %>">
+          <%= render partial: 'favorites/favorites', locals: { spot: @spot} %>
+        </div>
+        <div id="gone_places_buttons_<%= @spot.id %>">
+          <%= render partial: 'gone_places/gone_places', locals: { spot: @spot} %>
+        </div>
+      <% end %>
+    </div>
     <div class="contributor-info">
       <div class="contributor-prof">
         <%= image_tag(@spot.user.dog_image, id:"user_image") %>

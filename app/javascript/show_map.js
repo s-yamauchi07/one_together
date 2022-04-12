@@ -8,7 +8,7 @@ function initMap() {
       lat: gon.spot.latitude,
       lng: gon.spot.longitude
     },
-    zoom: 10,
+    zoom: 15,
   });
 
   marker = new google.maps.Marker({

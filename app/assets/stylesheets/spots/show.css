@@ -20,16 +20,46 @@
   color: #79B4B7;
 }
 
-.show-spot-image {
-  border-radius: 15px;
-  width: 60%;
-}
-
 .spot-details {
   width: 100%;
   height: 100%;
   display: flex;
   justify-content: space-between;
+}
+
+.spot-image-wrapper {
+  width: 60%;
+  position: relative;
+}
+
+.spot-image-wrapper img {
+  border-radius: 15px;
+}
+
+.fav-btn {
+  position:absolute;
+  bottom: 10px;
+  left: 80%;
+  background-color: #F8F0DF;
+  border-radius: 50px;
+  padding: 10px;
+}
+
+.fav {
+  color: #C74B50;
+}
+
+.fa-flag-checkered {
+  position:absolute;
+  bottom: 10px;
+  left: 90%;
+  background-color: #F8F0DF;
+  border-radius: 50px;
+  padding: 10px;
+}
+
+.check-flag {
+  color: #FFC93C;
 }
 
 .contributor-info {
