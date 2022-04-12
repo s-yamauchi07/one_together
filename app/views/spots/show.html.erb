@@ -17,10 +17,14 @@
       <div class="show-spot-image">
         <%= image_tag(@spot.spot_image) %>
       </div>
-      <div id="likes_buttons_<%= @spot.id %>">
-        <%= render partial: 'favorites/favorites', locals: { spot: @spot} %>
-      </div>
-      <i class="fa-solid fa-flag-checkered fa-2x"></i>
+      <% if current_user != @spot.user %>
+        <div id="favorites_buttons_<%= @spot.id %>">
+          <%= render partial: 'favorites/favorites', locals: { spot: @spot} %>
+        </div>
+        <div id="gone_places_buttons_<%= @spot.id %>">
+          <%= render partial: 'gone_places/gone_places', locals: { spot: @spot} %>
+        </div>
+      <% end %>
     </div>
     <div class="contributor-info">
       <div class="contributor-prof">

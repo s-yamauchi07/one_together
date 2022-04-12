@@ -58,6 +58,10 @@
   padding: 10px;
 }
 
+.check-flag {
+  color: #FFC93C;
+}
+
 .contributor-info {
   width: 35%;
   display: flex;
