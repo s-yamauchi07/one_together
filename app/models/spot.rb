@@ -3,6 +3,7 @@ class Spot < ApplicationRecord
   before_validation :geocode
   belongs_to :user
   has_many :favorites
+  has_many :gone_places
   has_one_attached :spot_image
 
   with_options presence: true do
@@ -29,5 +30,9 @@ class Spot < ApplicationRecord
 
   def favorited_by?(user)
     Favorite.where(user_id: user).exists?
+  end
+
+  def gone_place_by?(user)
+    GonePlace.where(user_id: user).exists?
   end
 end
