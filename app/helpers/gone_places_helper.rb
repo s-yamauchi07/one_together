@@ -1,0 +1,2 @@
+module GonePlacesHelper
+end

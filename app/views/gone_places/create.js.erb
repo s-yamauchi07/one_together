@@ -1,0 +1,3 @@
+console.log('create')
+
+$('#gone_places_buttons_<%= @spot.id %>').html("<%= j(render partial: 'gone_places/gone_places', locals: {spot: @spot}) %>");
