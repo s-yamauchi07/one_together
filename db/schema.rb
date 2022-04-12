@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_04_11_121104) do
+ActiveRecord::Schema.define(version: 2022_04_12_030857) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -40,6 +40,15 @@ ActiveRecord::Schema.define(version: 2022_04_11_121104) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["spot_id"], name: "index_favorites_on_spot_id"
     t.index ["user_id"], name: "index_favorites_on_user_id"
+  end
+
+  create_table "gone_places", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "spot_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["spot_id"], name: "index_gone_places_on_spot_id"
+    t.index ["user_id"], name: "index_gone_places_on_user_id"
   end
 
   create_table "spots", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -77,5 +86,7 @@ ActiveRecord::Schema.define(version: 2022_04_11_121104) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "favorites", "spots"
   add_foreign_key "favorites", "users"
+  add_foreign_key "gone_places", "spots"
+  add_foreign_key "gone_places", "users"
   add_foreign_key "spots", "users"
 end
