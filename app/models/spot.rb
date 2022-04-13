@@ -2,8 +2,9 @@ class Spot < ApplicationRecord
   geocoded_by :address
   before_validation :geocode
   belongs_to :user
-  has_many :favorites
-  has_many :gone_places
+  has_many :favorites, dependent: :destroy
+  has_many :gone_places, dependent: :destroy
+  has_many :comments, dependent: :destroy
   has_one_attached :spot_image
 
   with_options presence: true do
