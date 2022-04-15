@@ -1,11 +1,13 @@
 <% if user_signed_in? %>
     <% if spot.gone_place_by?(current_user, spot) %>
       <%= link_to spot_gone_place_path(spot, spot.gone_places.find_by(user_id: current_user.id)), method: :delete, remote: true, class:"place-check delete" do %>
-        <i class="fa-solid fa-flag-checkered fa-2x check-flag flag"></i>
+        <i class="fa-solid fa-flag-checkered check-flag"></i>
+        <p class="gone-place-count "><%= spot.gone_places.count %></p>
       <% end %>  
     <% else %>
       <%= link_to spot_gone_places_path(spot), method: :post, remote: true, class:"place-check" do %>
-        <i class="fa-solid fa-flag-checkered fa-2x flag "></i>
+        <i class="fa-solid fa-flag-checkered"></i>
+        <p class="gone-place-count not-yet"><%= spot.gone_places.count %></p>
       <% end %>  
     <% end %>
 <% end %>
