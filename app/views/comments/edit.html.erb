@@ -1,0 +1,14 @@
+<div class="comment-edit-wrapper wrapper">
+  <h2>口コミ編集</h2>
+  <%= form_with model:[@spot, @comment], id:"comment-edit-modal",local:true do |f| %>
+  <%= render 'shared/error_messages', model: f.object %>
+    <div class="comment-form">
+      <%= f.text_area :content, placeholder:"口コミを記載してください",class:"content" %>
+      <label class="form-image">
+        <span class="image-file"><i class="fa-solid fa-camera fa-3x"></i></span>
+        <%= f.file_field :comment_image, style: 'display: none' %>
+      </label>
+    </div>
+    <%= f.submit "更新", id:"comment-btn" %>
+  <% end %>  
+</div>
