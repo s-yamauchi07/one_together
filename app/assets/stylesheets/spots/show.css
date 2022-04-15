@@ -33,8 +33,12 @@
 }
 
 .spot-image-wrapper img {
+  width: 100%;
   border-radius: 15px;
+  object-fit: cover;
 }
+
+
 
 .fav-btn {
   position:absolute;
@@ -43,19 +47,21 @@
   background-color: #f8f5f2;
   border-radius: 50px;
   padding: 10px;
+  color:#c0c0c0;
 }
 
 .fav {
   color: #C74B50;
 }
 
-.fa-flag-checkered {
+.flag {
   position:absolute;
   bottom: 10px;
   left: 90%;
   background-color: #f8f5f2;
   border-radius: 50px;
   padding: 10px;
+  color:#c0c0c0;
 }
 
 .check-flag {
