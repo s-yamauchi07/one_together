@@ -1,3 +1,4 @@
+
 <%# モーダルウィンドウ %>
 <div id="registration-modal">
   <%= form_with model: @spot, id:"registration-form", local: true  do |f|  %>
@@ -54,7 +55,7 @@
 <div class="input-area">
   <p>スポット名入力</p>
   <input type="text" id="search-window" >
-  <input type="button" value="search" id="search-btn">
+  <input type="button" value="search" id="search-btn" >
 </div>
 
 <div id="map-wrapper">
@@ -82,5 +83,3 @@
   </div>
   <div id="map"><div>
 </div>
-
-<script src="https://maps.googleapis.com/maps/api/js?key=<%="#{ENV['GOOGLE_MAPS_API']}"%>&libraries=places" async defer></script>

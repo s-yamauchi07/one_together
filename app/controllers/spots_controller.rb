@@ -2,7 +2,7 @@ class SpotsController < ApplicationController
   before_action :set_spot, only: [:show, :edit, :update, :destroy]
 
   def index
-    @spots = Spot.all.order(created_at: :desc).limit(5)
+    @spots = Spot.order(created_at: :desc).limit(5)
   end
 
   def new
@@ -20,6 +20,8 @@ class SpotsController < ApplicationController
 
   def show
     gon.spot = @spot
+    @comment = Comment.new
+    @comments = Comment.includes(:user).order(created_at: :desc)
   end
 
   def edit
