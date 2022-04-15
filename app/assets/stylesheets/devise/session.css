@@ -2,7 +2,7 @@
   height: calc(100vh - 8rem);
   display: flex;
   align-items: center;
-  background-color: #FEFBF3;
+  background-color: #fffffe;
 }
 
 .session-card {
@@ -26,8 +26,8 @@
 
 .login-btn {
   border-radius: 1.5625rem;
-  border:#79B4B7;
-  background-color: #79B4B7;
+  border:#078080;
+  background-color: #078080;
   color: #f8f5f2;
   padding: 0.625rem 1.25rem;
   margin: 1.25rem auto 0;

@@ -4,7 +4,7 @@ body {
 
 header {
   height: 5rem;
-  background-color: #79B4B7;
+  background-color: #078080;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -13,7 +13,7 @@ header {
 
 #header-icon {
   /* line-height: 5rem; */
-  color:#f8f5f2;;
+  color:#f8f5f2;
   display: flex;
   align-items: center;
 }
