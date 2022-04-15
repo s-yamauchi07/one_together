@@ -4,12 +4,18 @@
 <div class="index-area">
   <h2>新着スポット</h2>
   <div class="slider">
-  <button type="button" class="slick-prev"></button>
+    <button type="button" class="slick-prev"></button>
       <% @spots.each do |spot| %>
         <div class="contain">
           <%= link_to image_tag(spot.spot_image, class:"spot-image"), spot_path(spot) %>
           <%= link_to spot.name, spot_path(spot) %>
           <span><i class="fa-solid fa-location-dot"></i><%= spot.address %></span>
+          <div id="index_favorites_buttons_<%= spot.id %>">
+          <%= render partial: 'favorites/index_favorites', locals: { spot: spot} %>
+        </div>
+        <div id="index_gone_places_buttons_<%= spot.id %>">
+          <%= render partial: 'gone_places/index_gone_places', locals: { spot: spot} %>
+        </div>
         </div>
       <% end %> 
     <button type="button" class="slick-next"></button>

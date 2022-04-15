@@ -12,10 +12,10 @@ header {
 }
 
 #header-icon {
-  /* line-height: 5rem; */
   color:#f8f5f2;
   display: flex;
   align-items: center;
+  text-decoration: none;
 }
 
 #header-lists {

@@ -28,7 +28,7 @@
   padding: 1.25rem;
   border: 1px solid #f8f5f2;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
-  background-color: #fffffe;
+  background-color: #f8f5f2;
 }
 
 .slick-slide {
@@ -51,6 +51,20 @@
 
 .slick-track {
   display: flex;
+}
+
+.favorites-count {
+  display: inline;
+  color:#F55353;
+}
+
+.gone-place-count {
+  display: inline;
+  color:#FFC93C;
+}
+
+.not-yet {
+  color:#222525;
 }
 
 .search-list-area {

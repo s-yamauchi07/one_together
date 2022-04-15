@@ -23,7 +23,7 @@
 
   <body>
     <header>
-      <p id="header-icon"><i class="fa-solid fa-dog fa-3x"></i></p>
+      <a href="/spots" id="header-icon"><i class="fa-solid fa-dog fa-3x"></i></a>
       <ul id="header-lists">
         <% if user_signed_in? %>
           <li><%= link_to current_user.nickname, '#' , class:'header-list' %></li>

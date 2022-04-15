@@ -29,11 +29,11 @@ class Spot < ApplicationRecord
   belongs_to :spot_type
   belongs_to :dog_permission
 
-  def favorited_by?(user)
-    Favorite.where(user_id: user).exists?
+  def favorited_by?(user, spot)
+    Favorite.where(user_id: user.id, spot_id: spot.id).exists?
   end
 
-  def gone_place_by?(user)
-    GonePlace.where(user_id: user).exists?
+  def gone_place_by?(user, spot)
+    GonePlace.where(user_id: user, spot_id: spot.id).exists?
   end
 end
