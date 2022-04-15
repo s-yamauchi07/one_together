@@ -4,5 +4,6 @@ Rails.application.routes.draw do
   resources :spots do
     resources :favorites, only: [:create, :destroy]
     resources :gone_places, only: [:create, :destroy]
+    resources :comments, only: [:create, :edit, :update, :destroy]
   end
 end
