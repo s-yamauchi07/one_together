@@ -13,7 +13,7 @@
 
 .index-area {
   padding: 1.875rem 0; 
-  background-color: black;
+  background-color: #f8f5f2;
 }
 
 .slider {
@@ -28,6 +28,7 @@
   padding: 1.25rem;
   border: 1px solid #f8f5f2;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  background-color: #fffffe;
 }
 
 .slick-slide {
@@ -42,7 +43,7 @@
 
 .contain a,
 .contain span{
-  color: #79B4B7;
+  color: #222525;
   margin-top: 0.625rem;
   display: block;
   text-decoration: none;
