@@ -1,0 +1,11 @@
+.comment-edit-wrapper {
+  background-color: #f8f5f2;
+}
+
+#comment-edit-modal .error-alert{
+  text-align: center;
+}
+
+.field_with_errors {
+  display: contents;
+}

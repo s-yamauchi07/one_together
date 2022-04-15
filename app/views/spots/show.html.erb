@@ -1,3 +1,4 @@
+<div class="flash-message"><%= flash[:delete_alert] %></div>
 <div class="spot-details-wrapper">
   <div class="top-wrapper">
     <h2 class="spot-name"><%= @spot.name %></h2>
@@ -65,8 +66,46 @@
     <tr>
   </table>
   <div id="spot-map"></div>
-  <div class="comments_lists">
-    <h2>COMMENT</h2>
+  <div class="comments-wapper">
+    <% if user_signed_in? && current_user != @spot.user %>
+    <h2>口コミ</h2>
+      <%= form_with model:[@spot, @comment], id:"comment-area",local:true do |f| %>
+        <div class="comment-form">
+          <%= f.text_area :content, placeholder:"口コミを記載してください",class:"content" %>
+          <label class="form-image">
+            <span class="image-file"><i class="fa-solid fa-camera fa-3x"></i></span>
+            <%= f.file_field :comment_image, style: 'display: none' %>
+          </label>
+        </div>
+        <%= f.submit "投稿", id:"comment-btn" %>
+      <% end %>
+    <% end %>
+
+    <h2>口コミ一覧</h2>
+    <% if user_signed_in? %>
+      <div class="comment-lists">
+        <% @comments.each do |comment| %>
+          <li class="comment-list">
+            <div class="comment-left">
+              <%= image_tag(comment.user.dog_image, class:"comment-user-prof")%>
+              <div class="user-comment-content">
+                <div class="comment-top">
+                  <p class="comment-user-name"><%= comment.user.nickname %></p>
+                  <p class="user-comment"><%= comment.content %></p>
+                </div>
+                <div class="comment-bottom">
+                    <% if current_user == comment.user %>
+                      <span id="edit-comment"><%= link_to "edit", edit_spot_comment_path(@spot, comment) %></span>
+                      <span id="delete-comment"><%= link_to "delete", spot_comment_path(@spot, comment), method: :delete %></span>
+                    <% end %>
+                </div>
+              </div>
+            </div>
+            <%= image_tag(comment.comment_image, class:"comment-img") %>
+          </li>
+        <% end %>
+      </div>
+    <% end %>
   </div>
 </div>
 

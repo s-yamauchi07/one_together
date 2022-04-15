@@ -61,7 +61,6 @@ belongs_to :spot
 |Column            |Type        |Options                        |
 |------------------|------------|-------------------------------|
 |content           |text        |null: false                    |
-|rating            |integer     |null: false                    |
 |user_id           |references  |null: false, foreign_key: true |
 |spot_id           |references  |null: false, foreign_key: true |
 

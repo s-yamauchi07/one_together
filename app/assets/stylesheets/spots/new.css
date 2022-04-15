@@ -23,7 +23,7 @@ table{
 }
 
 table tr{
-  border-bottom: solid 2px #F8F0DF;
+  border-bottom: solid 2px #f8f5f2;
 }
 
 table tr:last-child{
@@ -41,13 +41,18 @@ table th{
 
 /* モーダルウィンドウ */
 #registration-form {
-  width: 60%;
+  width: 45%;
   height: 100%;
   margin: 3.125rem auto;
   padding: 3.125rem;
   display: none;
-  border: 1px solid #F8F0DF;
+  z-index: 1;
+  border: 1px solid #f8f5f2;
+  background-color: #f8f5f2;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  position: absolute;
+  top: 30px;
+  right: 0;
 }
 
 #registration-form table input{
@@ -74,17 +79,22 @@ table th{
   width: 12.5rem;
   border: none;
   background-color: #79B4B7;
-  color:#F8F0DF;
+  color:#f8f5f2;
   border-radius: 25px;
   padding: 0.625rem 0;
   margin: 1.25rem auto 0.625rem;
+  display: block;
 }
 
 /* 検索画面 */
+.wrapper {
+  padding-top: 2.5rem;
+  min-height: calc(100vh - 8rem);
+}
+
 h2 {
-  text-align: center;
   color:#79B4B7;
-  padding: 1.25rem;
+  padding: 2.5rem;
 }
 
 .input-area {
@@ -93,7 +103,7 @@ h2 {
 
 #search-btn {
   background-color: #79B4B7;
-  color:#F8F0DF;
+  color:#f8f5f2;
   border: none;
   border-radius: 25px;
   padding: 0.3125rem 0.625rem;
@@ -102,11 +112,12 @@ h2 {
 
 #map-wrapper {
   padding: 20px;
+  position: relative;
 }
 
 #registration {
   background-color: #79B4B7;
-  color:#F8F0DF;
+  color:#f8f5f2;
   border: none;
   border-radius: 25px;
   padding: 0.3125rem 0.625rem;
