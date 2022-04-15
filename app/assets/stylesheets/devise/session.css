@@ -6,7 +6,7 @@
 }
 
 .session-card {
-  background-color: #F8F0DF;
+  background-color: #f8f5f2;
   width: 40%;
   margin: 0 auto;
   padding: 2rem;
@@ -28,7 +28,7 @@
   border-radius: 1.5625rem;
   border:#79B4B7;
   background-color: #79B4B7;
-  color: #F8F0DF;
+  color: #f8f5f2;
   padding: 0.625rem 1.25rem;
   margin: 1.25rem auto 0;
   display: block;

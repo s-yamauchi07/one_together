@@ -26,7 +26,7 @@
   height: 500px;
   margin-right: 1.25rem;
   padding: 1.25rem;
-  border: 1px solid #F8F0DF;
+  border: 1px solid #f8f5f2;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
 }
 
@@ -57,7 +57,7 @@
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
-  background-color: #F8F0DF;
+  background-color: #f8f5f2;
 }
 
 .search-list-area li{
