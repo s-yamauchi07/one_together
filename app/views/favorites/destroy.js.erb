@@ -1,3 +1,4 @@
-console.log('destroy')
 
 $('#favorites_buttons_<%= @spot.id %>').html("<%= j(render partial: 'favorites/favorites', locals: {spot: @spot}) %>");
+
+$('#index_favorites_buttons_<%= @spot.id %>').html("<%= j(render partial: 'favorites/index_favorites', locals: {spot: @spot}) %>");
