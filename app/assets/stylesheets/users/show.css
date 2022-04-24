@@ -1,0 +1,111 @@
+/* プロフエリア */
+.user-profiles {
+  display: flex;
+  margin: 2.5rem;
+  padding: 2.5rem;
+}
+
+.user-prof-left {
+  width: 45%;
+}
+
+.user-image {
+  width: 50%;
+  margin: 20px auto;
+  border-radius: 50%;
+  background-color: aliceblue;
+  padding: 10px 20px;
+}
+
+.prof-btn {
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  list-style: none;
+}
+
+.prof-btn li {
+  padding: 10px 20px;
+  margin: 0 20px;
+  border-radius: 10px;
+  background-color: #f45d48;
+  color: #fffffe;
+  font-size: 12px;
+}
+
+.user-prof-right {
+  width: 60%;
+  text-align: center;
+}
+
+.prof-list-name {
+  font-size: 2.5rem;
+}
+
+.user-prof-right li {
+  list-style: none;
+}
+
+.user-spot-data {
+  display: flex;
+  justify-content: space-around;
+  margin: 2.5rem 0;
+}
+
+.count {
+  font-size: 2.5rem;
+}
+
+/* 一覧タブ実装 */
+.tab{
+  border-bottom: 3px solid #d5c5a5;
+  display: flex;
+  justify-content: space-around;
+  padding:0;
+}
+                  
+.tab_menu{
+  width:calc(100%/3);
+  color: #333;
+  list-style: none;
+  text-align: center;
+  padding:5px 0;
+  border-right: 1px solid #eee;
+  cursor: pointer;
+  transition: .3s;
+  font-size:14px;
+}
+
+.tab_detail_wrap{
+  display: none;
+  padding: 4.375rem 0;
+}
+
+.tab_menu.active{
+  display: block;
+  color: #fff;
+  background-color: #d5c5a5;
+  cursor: pointer;
+}
+
+.tab_detail_wrap.show{
+  display: block;
+}
+
+.spot-list {
+  width: 90%;
+  margin: 0 auto 40px;
+  display: flex;
+  padding: 1.875rem;
+  border:1px solid #d5c5a5;
+}
+
+.spot-list img {
+  width: 200px;
+  height: 200px;
+  margin-right: 1.875rem;
+}
+
+.spot-list-name {
+  font-size: 40px;
+}
