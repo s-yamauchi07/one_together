@@ -1,0 +1,76 @@
+<div class="wrapper">
+<%# プロフィール一覧 %>
+<div class="user-profiles">
+  <div class="user-prof-left">
+    <div class="user-image">
+      <%= image_tag(@user.dog_image) %>
+    </div>
+    <ul class="prof-btn">
+      <li>編集</li>
+      <li>退会</li>
+    </ul>
+  </div>
+  <div class="user-prof-right">
+    <ul class="user-profile">
+      <li class="prof-list-name"><%= @user.nickname %></li>
+      <li class="prof-list"><%= @user.dog_name %>/<%= @user.dog_type.name %></li>
+    </ul>
+    <div class="user-spot-data">
+      <div class="spot-data">
+        <p>気になるスポット</p>
+        <p class="count"><%= @user.favorites.count%></p>
+      </div>
+      <div class="spot-data">
+        <p>行ったスポット</p>
+        <p class="count"><%= @user.gone_places.count%></p>
+      </div>
+      <div class="spot-data">
+        <p>投稿したスポット</p>
+        <p class="count"><%= @user.spots.count %></p>
+      </div>
+    </div>
+  </div>
+</div>
+<%# タブ一覧 %>
+<ul class="tab">
+  <li class="tab_menu active">気になるスポット</li>
+  <li class="tab_menu ">行ったことあるスポット</li>
+  <li class="tab_menu ">投稿したスポット</li>
+</ul>
+<ul class="tab_detail_wrap show">
+  <% @favorite_spot.each do |favorite_spot| %>
+    <div class="spot-list">
+      <%= image_tag(favorite_spot.spot.spot_image) %>
+      <div class="spot-list-detail">
+        <p class="spot-list-name"><%= favorite_spot.spot.name %></p>
+        <p><%= favorite_spot.spot.address %></p>
+        <p><%= favorite_spot.spot.spot_type.name %></p>
+      </div>
+    </div>
+  <% end %>
+</ul>
+<ul class="tab_detail_wrap">
+  <% @gone_spot.each do |gone_spot| %>
+    <div class="spot-list">
+      <%= image_tag(gone_spot.spot.spot_image) %></p>
+      <div class="spot-list-detail">
+        <p class="spot-list-name"><%= gone_spot.spot.name %></p>
+        <p><%= gone_spot.spot.address %></p>
+        <p><%= gone_spot.spot.spot_type.name %></p>
+      </div>
+    </div>
+  <% end %>
+</ul>
+<ul class="tab_detail_wrap">
+  <% @user.spots.each do |user_spot| %>
+    <div class="spot-list">
+      <%= image_tag(user_spot.spot_image) %></p>
+      <div class="spot-list-detail">
+        <p class="spot-list-name"><%= user_spot.name %></p>
+        <p><%= user_spot.address %></p>
+        <p><%= user_spot.spot_type.name %></p>
+      </div>
+    </div> 
+  <% end %>
+</ul>
+</div>

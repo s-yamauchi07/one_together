@@ -8,6 +8,7 @@ class User < ApplicationRecord
   has_many :favorites, dependent: :destroy
   has_many :gone_places, dependent: :destroy
   has_many :comments, dependent: :destroy
+  has_many :spots
 
   validates :nickname, presence: true
   PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]+\z/i.freeze

@@ -6,4 +6,5 @@ Rails.application.routes.draw do
     resources :gone_places, only: [:create, :destroy]
     resources :comments, only: [:create, :edit, :update, :destroy]
   end
+  resources :users, only: [:show]
 end
