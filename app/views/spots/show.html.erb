@@ -43,29 +43,44 @@
   </div>
 
   <h2>ABOUT SPOT</h2>
-  <table class="spot-addresses">
-    <tr>
-      <th>住所</th>
-      <td><%= @spot.address %></td>
-    <tr>
-    <tr>
-      <th>電話番号</th>
-      <td><%= @spot.phone_number %></td>
-    <tr>
-    <tr>
-      <th>ウェブサイト</th>
-      <td><%= @spot.website %></td>
-    <tr>
-    <tr>
-      <th>スポットタイプ</th>
-      <td><%= @spot.spot_type.name %></td>
-    <tr></tr>
-    <tr>
-      <th>同伴</th>
-      <td><%= @spot.dog_permission.name %></td>
-    <tr>
-  </table>
-  <div id="spot-map"></div>
+  <div class="about-spot">
+    <div class="about-spot-type">
+      <p class="about-spot-title">スポットタイプ</p>
+      <%= image_tag(@spot.spot_type.image) %>
+      <%= @spot.spot_type.name %>
+    </div>
+    <div class="about-spot-type">
+      <p class="about-spot-title">同伴</p>
+      <%= image_tag(@spot.dog_permission.image) %>
+      <%=@spot.dog_permission.name %>
+    </div>
+    <div class="about-spot-type">
+      <p class="about-spot-title">サイズ</p>
+      <%= image_tag(@spot.dog_size.image) %>
+      <%=@spot.dog_size.name %>
+    </div>
+  </div>
+  <div class="spot-addresses">
+    <div id="spot-map"></div>
+    <table class="spot-address">
+      <tr>
+        <th >都道府県</th>
+        <td><%= @spot.prefecture.name %></td>
+      </tr>
+      <tr>
+        <th >住所</th>
+        <td><%= @spot.address %></td>
+      </tr>
+      <tr>
+        <th>電話番号</th>
+        <td><%= @spot.phone_number %></td>
+      </tr>
+      <tr>
+        <th>ウェブサイト</th>
+        <td><%= @spot.website %></td>
+      </tr>
+    </table>
+  </div>
   <div class="comments-wapper">
     <% if user_signed_in? && current_user != @spot.user %>
     <h2>口コミ投稿</h2>
