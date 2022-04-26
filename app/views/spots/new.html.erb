@@ -41,6 +41,9 @@
       <th>同伴</th>
       <td><%= f.collection_select(:dog_permission_id, DogPermission.all, :id, :name, {}, {}) %></td>
     </tr>
+      <th>ワンちゃんサイズ</th>
+      <td><%= f.collection_select(:dog_size_id, DogSize.all, :id, :name, {}, {}) %></td>
+    </tr>
       <th>口コミ</th>
       <td><%= f.text_area :comment, id:"place-comment" %></td>
     </tr>

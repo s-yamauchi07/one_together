@@ -16,21 +16,21 @@
   padding: 0.625rem;
 }
 
-table{
+#map-wrapper table{
   width: 100%;
   border-collapse: collapse;
   color:#79B4B7;
 }
 
-table tr{
+#map-wrapper table tr{
   border-bottom: solid 2px #f8f5f2;
 }
 
-table tr:last-child{
+#map-wrapper table tr:last-child{
   border-bottom: none;
 }
 
-table th{
+#map-wrapper table th{
   position: relative;
   text-align: left;
   width: 30%;
