@@ -5,6 +5,8 @@ class Spot < ApplicationRecord
   has_many :favorites, dependent: :destroy
   has_many :gone_places, dependent: :destroy
   has_many :comments, dependent: :destroy
+  has_many :post_spot_relations
+  has_many :tags, through: :post_spot_relations
   has_one_attached :spot_image
 
   extend ActiveHash::Associations::ActiveRecordExtensions
