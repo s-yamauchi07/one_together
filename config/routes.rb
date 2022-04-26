@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, controllers: {
+    registrations: "users/registrations"
+  }
   root to: "homes#index"
   resources :spots do
     resources :favorites, only: [:create, :destroy]
