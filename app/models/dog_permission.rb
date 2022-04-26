@@ -1,9 +1,8 @@
 class DogPermission < ActiveHash::Base
   self.data = [
-    { id: 1, name: '---' }, 
-    { id: 2, name: '大型犬OK' },
-    { id: 3, name: '中型犬OK' },
-    { id: 4, name: '小型犬OK' },
+    { id: 1, name: '---' , image: '---'}, 
+    { id: 2, name: '同伴可' ,image: 'icons/good.png'},
+    { id: 3, name: '一部のみ可',image: 'icons/teracce.png' },
 ]
 
   include ActiveHash::Associations
