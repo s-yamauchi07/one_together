@@ -28,6 +28,7 @@ class Spot < ApplicationRecord
   belongs_to :prefecture
   belongs_to :spot_type
   belongs_to :dog_permission
+  belongs_to :dog_size
 
   def favorited_by?(user, spot)
     Favorite.where(user_id: user.id, spot_id: spot.id).exists?
