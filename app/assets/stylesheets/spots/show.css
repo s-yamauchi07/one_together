@@ -96,7 +96,7 @@
 #user_image {
   width: 9.375rem;
   height: 9.375rem;
-  object-fit: contain;
+  object-fit: cover;
   background-color: #f8f5f2;
   border-radius: 50%;
 }
@@ -129,14 +129,45 @@
   left: 50%;
 }
 
+.about-spot {
+  display: flex;
+  justify-content: space-around;
+  margin: 2.5rem 0;
+}
+
+.about-spot-type {
+  margin: 0 auto;
+  text-align: center;
+}
+
+.about-spot-type img {
+  width: 150px;
+  height: 150px;
+}
+
+.about-spot-title {
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
 .spot-addresses {
-  width: 80%;
-  margin-top: 1.25rem;
+  width: 100%;
+  display: flex;
 }
 
 #spot-map {
-  width: 80%;
+  width: 60%;
   height: 400px;
+}
+
+.spot-address {
+  width: 40%;
+  margin-left: 2.5rem;
+}
+
+.spot-address th {
+  text-align: left;
+  width: 100px;
 }
 
 /* コメント投稿 */
