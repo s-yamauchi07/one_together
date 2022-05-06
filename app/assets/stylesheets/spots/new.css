@@ -31,7 +31,6 @@
 }
 
 #map-wrapper table th{
-  position: relative;
   text-align: left;
   width: 30%;
   color: #79B4B7;
@@ -45,14 +44,10 @@
   height: 100%;
   margin: 3.125rem auto;
   padding: 3.125rem;
-  display: none;
   z-index: 1;
   border: 1px solid #f8f5f2;
   background-color: #f8f5f2;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
-  position: absolute;
-  top: 30px;
-  right: 0;
 }
 
 #registration-form table input{

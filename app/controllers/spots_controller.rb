@@ -6,12 +6,13 @@ class SpotsController < ApplicationController
   end
 
   def new
-    @spot = Spot.new
+    @spot_tag = SpotTag.new
   end
 
   def create
-    @spot = Spot.new(set_address)
-    if @spot.save
+    @spot_tag = SpotTag.new(set_address)
+    @spot_tag.valid?
+    if @spot_tag.save
       redirect_to spots_path
     else
       render :new
@@ -21,7 +22,8 @@ class SpotsController < ApplicationController
   def show
     gon.spot = @spot
     @comment = Comment.new
-    @comments = Comment.includes(:user).order(created_at: :desc)
+    @comments = @spot.comments.includes(:user).order(created_at: :desc)
+    @tags = @spot.tags
   end
 
   def edit
@@ -48,7 +50,8 @@ class SpotsController < ApplicationController
   private
 
   def set_address
-    params.require(:spot).permit(:name, :phone_number, :website, :address, :latitude, :longitude, :prefecture_id, :spot_type_id, :dog_permission_id, :comment,:spot_image,:dog_size_id).merge(user_id: current_user.id)
+    
+    params.require(:spot_tag).permit(:name, :phone_number, :website, :address, :latitude, :longitude, :prefecture_id, :spot_type_id, :dog_permission_id, :comment,:spot_image,:dog_size_id, tag_ids: []).merge(user_id: current_user.id)
   end
 
   def set_spot

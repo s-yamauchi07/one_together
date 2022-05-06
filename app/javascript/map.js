@@ -32,7 +32,6 @@ const codeAddress = (map) => {
 
         service.getDetails(request, (place, status) => {
           if (status === google.maps.places.PlacesServiceStatus.OK) {
-            console.log(place)
             const spotName = document.getElementById('spot-name');
             const spotAddress = document.getElementById('spot-address');
             const spotPhoneNumber = document.getElementById('spot-phonenumber');
