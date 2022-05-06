@@ -23,6 +23,7 @@ class SpotsController < ApplicationController
     gon.spot = @spot
     @comment = Comment.new
     @comments = @spot.comments.includes(:user).order(created_at: :desc)
+    @tags = @spot.tags
   end
 
   def edit
@@ -50,7 +51,7 @@ class SpotsController < ApplicationController
 
   def set_address
     
-    params.require(:spot_tag).permit(:name, :phone_number, :website, :address, :latitude, :longitude, :prefecture_id, :spot_type_id, :dog_permission_id, :comment,:spot_image,:dog_size_id, :tag_name).merge(user_id: current_user.id)
+    params.require(:spot_tag).permit(:name, :phone_number, :website, :address, :latitude, :longitude, :prefecture_id, :spot_type_id, :dog_permission_id, :comment,:spot_image,:dog_size_id, tag_ids: []).merge(user_id: current_user.id)
   end
 
   def set_spot
