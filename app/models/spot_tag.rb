@@ -1,6 +1,6 @@
 class SpotTag
   include ActiveModel::Model
-  attr_accessor :name, :phone_number, :website, :address, :latitude, :longitude, :prefecture_id, :spot_type_id, :dog_permission_id, :comment,:spot_image,:dog_size_id, :user_id, :tag_name
+  attr_accessor :name, :phone_number, :website, :address, :latitude, :longitude, :prefecture_id, :spot_type_id, :dog_permission_id, :comment,:spot_image,:dog_size_id, :user_id, :tag_name, :tag_ids
 
   # spotモデル/tagモデルのバリデーション
   with_options presence: true do
@@ -11,7 +11,6 @@ class SpotTag
     validates :latitude
     validates :longitude
     validates :spot_image
-    validates :tag_name
   end
 
   with_options numericality: { other_than: 1 , message: "can't be blank"} do
@@ -38,11 +37,13 @@ class SpotTag
     )
 
     # タグの保存。first_or_initializeで既に保存済みのタグかを確認。
-    tag = Tag.where(tag_name: tag_name).first_or_initialize
-    tag.save
+    tag_ids.each do |tag_name|
+      tag = Tag.where(tag_name: tag_name).first_or_initialize
+      tag.save
 
-    # 中間テーブルへの保存
-    SpotTagRelation.create(spot_id: spot.id, tag_id: tag.id)
+      # 中間テーブルへの保存
+      SpotTagRelation.create(spot_id: spot.id, tag_id: tag.id)
+    end
 
   end
 
