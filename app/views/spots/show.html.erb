@@ -39,6 +39,12 @@
       <div class="contributor-comment">
         <%= @spot.comment %>
       </div>
+      <div class="contributor-tags">
+        <% @tags.each do |tag|%>
+          <%= tag.tag_name%>
+        <% end %>
+        <%#= タグ一覧表示をする場所%>
+      </div>
     </div>
   </div>
 
