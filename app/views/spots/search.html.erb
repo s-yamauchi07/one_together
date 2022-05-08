@@ -1,0 +1,28 @@
+<h1>こだわり検索</h1>
+  <%= search_form_for @q, url: search_spots_path do |f| %>
+    <%= f.label :name_cont, "施設名"%>
+    <%= f.search_field :name_cont, placeholder:'施設名'%>
+    <br>
+    <%= f.label :prefecture_id_in, "都道府県"%><br>
+    <%= f.collection_check_boxes(:prefecture_id_in, Prefecture.all, :id, :name, {include_blank: "---"})%>
+    <br>
+    <%= f.label :spot_type_id_in, "スポットタイプ"%>
+    <%= f.collection_check_boxes(:spot_type_id_in, SpotType.all, :id, :name, {include_blank: "---"})%>
+    <br>
+    <%= f.submit '検索' %>
+  <% end %>
+
+<div id="result_map">
+</div>
+
+<h1>検索結果</h1>
+  <% @results.each do |spot| %>
+    <div class="spot-list">
+      <%= image_tag(spot.spot_image) %></p>
+      <div class="spot-list-detail">
+        <p class="spot-list-name"><%= spot.name %></p>
+        <p><%= spot.address %></p>
+        <p><%= spot.spot_type.name %></p>
+      </div>
+    </div> 
+  <% end %>

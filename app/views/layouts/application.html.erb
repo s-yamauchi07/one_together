@@ -29,6 +29,7 @@
           <li><%= link_to current_user.nickname, user_path(current_user) , class:'header-list' %></li>
           <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class:'header-list' %></li>
           <li><%= link_to 'スポット登録', new_spot_path , class:'header-list'%></li>
+          <li><%= link_to 'こだわり検索', search_spots_path , class:'header-list'%></li>
         <% else %>
           <li><%= link_to 'ログイン', new_user_session_path , class:'header-list'%></li>
           <li><%= link_to '新規登録', new_user_registration_path, class:'header-list' %></li>
