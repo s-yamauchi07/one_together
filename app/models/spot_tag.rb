@@ -13,11 +13,11 @@ class SpotTag
     validates :spot_image
   end
 
-  with_options numericality: { other_than: 1 , message: "can't be blank"} do
-    validates :prefecture_id
-    validates :spot_type_id
-    validates :dog_permission_id
-  end
+  # with_options numericality: { message: "can't be blank"} do
+  #   validates :prefecture_id
+  #   validates :spot_type_id
+  #   validates :dog_permission_id
+  # end
 
 
   def save

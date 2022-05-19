@@ -1,8 +1,10 @@
 class SpotsController < ApplicationController
   before_action :set_spot, only: [:show, :edit, :update, :destroy]
-
+  before_action :search_spot, only: [:index, :search]
+  
   def index
     @spots = Spot.order(created_at: :desc).limit(5)
+    @tags = Tag.limit(10)
   end
 
   def new
@@ -46,15 +48,26 @@ class SpotsController < ApplicationController
     end
   end
 
+  def search
+    @results = @q.result
+    gon.spots = @results
+
+
+    # マーカーとの数字を合わせるため初期値設定
+    @spot_num = 1
+  end
 
   private
 
   def set_address
-    
     params.require(:spot_tag).permit(:name, :phone_number, :website, :address, :latitude, :longitude, :prefecture_id, :spot_type_id, :dog_permission_id, :comment,:spot_image,:dog_size_id, tag_ids: []).merge(user_id: current_user.id)
   end
 
   def set_spot
     @spot = Spot.find(params[:id])
+  end
+
+  def search_spot
+    @q = Spot.ransack(params[:q])
   end
 end

@@ -2,7 +2,6 @@ window.addEventListener('load', () => {
   const tagField = document.getElementById('tag-name')
   const addTagBtn = document.getElementById('add-tag-btn')
   const tagList = document.getElementById('registration-table')
-  console.log(tagList)
 
   addTagBtn.addEventListener('click', () => {
     const tagName = tagField.value

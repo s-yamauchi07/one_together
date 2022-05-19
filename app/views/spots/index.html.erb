@@ -1,6 +1,15 @@
 <div class="flash-message"><%= flash[:notice] %></div>
 <div class="search-area">
+  <div class="search-box">
+    エリア・カテゴリから探す
+    <%= search_form_for @q, url: search_spots_path do |f| %>
+      <%= f.search_field :address_cont, placeholder: 'エリア(例:東京)'%>
+      <%= f.collection_select(:spot_type_id_eq, SpotType.all, :id, :name, {include_blank: "カテゴリ"})%>
+      <%= f.submit '検索' %>
+    <% end %>
+  </div>
 </div>
+
 <div class="index-area">
   <h2>新着スポット</h2>
   <div class="slider">
@@ -23,16 +32,25 @@
 </div>
 
 <div class="search-container">
-  <h2>エリア検索</h2>
+  <h2>タグで検索</h2>
+  <% @tags.each do |tag|%>
+  <%# タグから検索できるように下記を編集する %>
+    <%= link_to tag.tag_name, search_spots_path(q: {tags_id_eq: tag.id}), class:"tag_name"%>
+  <% end %>
+
+
+
+
+  <h2>エリアで検索</h2>
   <ul class="search-list-area">
-    <li id="hokkaido" class="area"><span>北海道</span></li>
-    <li id="tohoku" class="area"><span>東北</span></li>
-    <li id="kanto" class="area"><span>関東</span></li>
-    <li id="chubu" class="area"><span>中部</span></li>
-    <li id="kinki" class="area"><span>近畿</span></li>
-    <li id="chugoku" class="area"><span>中国</span></li>
-    <li id="shikoku" class="area"><span>四国</span></li>
-    <li id="kyusyu" class="area"><span>九州</span></li>
-    <li id="okinawa" class="area"><span>沖縄</span></li>
+    <li id="hokkaido" class="area"><%= link_to '北海道', search_spots_path(q: { prefecture_id_eq: 1 })%></li>
+    <li id="tohoku" class="area"><%= link_to '東北', search_spots_path(q: { prefecture_id_matches_any: [2,3,4,5,6,7] })%></li>
+    <li id="kanto" class="area"><%= link_to '関東', search_spots_path(q: { prefecture_id_matches_any: [6,9,10,11,12,13,14] })%></li>
+    <li id="chubu" class="area"><%= link_to '中部', search_spots_path(q: { prefecture_id_matches_any: [15,16,17,18,19,20,21,22,23] })%></li>
+    <li id="kinki" class="area"><%= link_to '近畿', search_spots_path(q: { prefecture_id_matches_any: [24,25,26,27,28,29,30] })%></li>
+    <li id="chugoku" class="area"><%= link_to '中国', search_spots_path(q: { prefecture_id_matches_any: [31,32,33,34,35] })%></li>
+    <li id="shikoku" class="area"><%= link_to '四国', search_spots_path(q: { prefecture_id_matches_any: [36,37,38,39] })%></li>
+    <li id="kyusyu" class="area"><%= link_to '九州', search_spots_path(q: { prefecture_id_matches_any: [40,41,42,43,44,45,46,] })%></li>
+    <li id="okinawa" class="area"><%= link_to '沖縄', search_spots_path(q: { prefecture_id_eq: 47 })%></li>
   </ul>
 </div>
