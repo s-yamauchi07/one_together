@@ -1,9 +1,10 @@
 class SpotsController < ApplicationController
   before_action :set_spot, only: [:show, :edit, :update, :destroy]
   before_action :search_spot, only: [:index, :search]
-
+  
   def index
     @spots = Spot.order(created_at: :desc).limit(5)
+    @tags = Tag.limit(10)
   end
 
   def new
@@ -49,6 +50,11 @@ class SpotsController < ApplicationController
 
   def search
     @results = @q.result
+    gon.spots = @results
+
+
+    # マーカーとの数字を合わせるため初期値設定
+    @spot_num = 1
   end
 
   private
