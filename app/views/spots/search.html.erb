@@ -1,3 +1,4 @@
+<div class="search-wrapper">
 <h1>こだわり検索</h1>
   <%= search_form_for @q, url: search_spots_path do |f| %>
     <%= f.label :name_cont, "施設名"%>
@@ -9,15 +10,21 @@
     <%= f.label :spot_type_id_in, "スポットタイプ"%>
     <%= f.collection_check_boxes(:spot_type_id_in, SpotType.all, :id, :name, {include_blank: "---"})%>
     <br>
+    <%= f.label :tags_tag_name_cont, "タグ"%>
+    <%= f.search_field :tags_tag_name_cont, placeholder:'タグ'%>
+    <br>
     <%= f.submit '検索' %>
   <% end %>
 
-<div id="result_map">
+<div id="map">
+  ここにマップが入るよ
 </div>
 
 <h1>検索結果</h1>
+<% if @results.present? %>
   <% @results.each do |spot| %>
     <div class="spot-list">
+      <%= @spot_num %>
       <%= image_tag(spot.spot_image) %></p>
       <div class="spot-list-detail">
         <p class="spot-list-name"><%= spot.name %></p>
@@ -25,4 +32,9 @@
         <p><%= spot.spot_type.name %></p>
       </div>
     </div> 
+    <% @spot_num += 1%>
   <% end %>
+<% else %>
+  <p>マッチするスポットがありませんでした</p>
+<% end %>  
+</div>
