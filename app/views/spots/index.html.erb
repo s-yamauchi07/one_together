@@ -32,13 +32,13 @@
 </div>
 
 <div class="search-container">
-  <h2>タグで検索</h2>
-  <% @tags.each do |tag|%>
-  <%# タグから検索できるように下記を編集する %>
-    <%= link_to tag.tag_name, search_spots_path(q: {tags_id_eq: tag.id}), class:"tag_name"%>
+  <% if @tags != nil %>
+    <h2>タグで検索</h2>
+    <% @tags.each do |tag|%>
+    <%# タグから検索できるように下記を編集する %>
+      <%= link_to tag.tag_name, search_spots_path(q: {tags_id_eq: tag.id}), class:"tag_name"%>
+    <% end %>
   <% end %>
-
-
 
 
   <h2>エリアで検索</h2>
