@@ -11,7 +11,6 @@ require("@rails/ujs").start()
 require("@rails/activestorage").start()
 require("channels")
 require("../map");
-require("../modal");
 require("../preview");
 require("../slide");
 require("../show_map");
