@@ -60,7 +60,7 @@ class SpotsController < ApplicationController
   private
 
   def set_address
-    params.require(:spot_tag).permit(:name, :phone_number, :website, :address, :latitude, :longitude, :prefecture_id, :spot_type_id, :dog_permission_id, :comment,:spot_image,:dog_size_id, tag_ids: []).merge(user_id: current_user.id)
+    params.require(:spot_tag).permit(:name, :phone_number, :website, :address, :latitude, :longitude, :prefecture_id, :spot_type_id, :dog_permission_id, :comment, :dog_size_id, tag_ids: [],spot_images: []).merge(user_id: current_user.id)
   end
 
   def set_spot
