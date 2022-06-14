@@ -16,7 +16,9 @@
   <div class="spot-details">
     <div class="spot-image-wrapper">
       <div class="show-spot-image">
-        <%= image_tag(@spot.spot_image) %>
+        <% @spot.spot_images.each do |spot_image|%>
+          <%= image_tag spot_image %>
+        <% end %>
       </div>
       <% if current_user != @spot.user %>
         <div id="favorites_buttons_<%= @spot.id %>">
