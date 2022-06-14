@@ -1,25 +1,34 @@
 document.addEventListener('DOMContentLoaded', () => {
   // 新規投稿・編集ページのフォームを取得
   const postForm = document.getElementById('registration-form');
-  const previewList = document.getElementById('previews')
   const cameraIcon = document.querySelector('.fa-camera')
 
   // 新規投稿・編集ページのフォームがないならここで終了。「!」は論理否定演算子。
   if (!postForm) return null;
 
-  const fileField = document.querySelector('input[type="file"][name="spot_tag[spot_image]"]')
-  fileField.addEventListener('change', (e) => {
+  const fileField = document.querySelectorAll('input[type="file"][name="spot_tag[spot_images][]"]')
+  console.log(fileField)
+  fileField.forEach(function(list) {
+    console.log(list)
+  list.addEventListener('change', (e) => {
+    // 何枚目の操作をしているかを取得
+    console.log(list)
+    const dataIndex = e.target.getAttribute('data-index');
+    const addPreview = document.getElementById(`data-index=${dataIndex}`)
 
     // 古いプレビューが存在する場合は削除
-    const alreadyPreview = document.querySelector('.preview')
-    if (alreadyPreview) {
-      alreadyPreview.remove();
-    }
+    // const alreadyPreview = document.querySelector('.preview')
+    // if (alreadyPreview) {
+    //   alreadyPreview.remove();
+    // }
+
     const file = e.target.files[0];
     const blob = window.URL.createObjectURL(file);
-    
-    cameraIcon.setAttribute('style','opacity: 0')
-    previewList.setAttribute('style',`background-image:url(${blob});`);
+
+    addPreview.setAttribute('style','opacity: 0')
+    addPreview.setAttribute('style',`background-image:url(${blob});`);
+  })
+
 
 
 
