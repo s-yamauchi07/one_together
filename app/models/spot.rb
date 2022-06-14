@@ -7,7 +7,7 @@ class Spot < ApplicationRecord
   has_many :comments, dependent: :destroy
   has_many :spot_tag_relations
   has_many :tags, through: :spot_tag_relations
-  has_one_attached :spot_image
+  has_many_attached :spot_images
 
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :prefecture
