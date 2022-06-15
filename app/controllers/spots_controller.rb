@@ -51,10 +51,14 @@ class SpotsController < ApplicationController
   def search
     @results = @q.result
     gon.spots = @results
-
-
     # マーカーとの数字を合わせるため初期値設定
     @spot_num = 1
+  end
+
+  def tag_search
+    return nil if params[:keyword] == ""
+    tag = Tag.where('tag_name LIKE ?', "%#{params[:keyword]}%")
+    render json: {keyword: tag}
   end
 
   private
