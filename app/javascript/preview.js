@@ -7,12 +7,9 @@ document.addEventListener('DOMContentLoaded', () => {
   if (!postForm) return null;
 
   const fileField = document.querySelectorAll('input[type="file"][name="spot_tag[spot_images][]"]')
-  console.log(fileField)
   fileField.forEach(function(list) {
-    console.log(list)
   list.addEventListener('change', (e) => {
     // 何枚目の操作をしているかを取得
-    console.log(list)
     const dataIndex = e.target.getAttribute('data-index');
     const addPreview = document.getElementById(`data-index=${dataIndex}`)
 
