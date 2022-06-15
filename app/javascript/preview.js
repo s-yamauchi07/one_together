@@ -7,8 +7,12 @@ document.addEventListener('DOMContentLoaded', () => {
   // 新規投稿・編集ページのフォームがないならここで終了。「!」は論理否定演算子。
   if (!postForm) return null;
 
-  const fileField = document.querySelector('input[type="file"][name="spot_tag[spot_image]"]')
-  fileField.addEventListener('change', (e) => {
+  const fileField = document.querySelectorAll('input[type="file"][name="spot_tag[spot_images][]"]')
+  fileField.forEach(function(list) {
+  list.addEventListener('change', (e) => {
+    // 何枚目の操作をしているかを取得
+    const dataIndex = e.target.getAttribute('data-index');
+    const addPreview = document.getElementById(`data-index=${dataIndex}`)
 
     // 古いプレビューが存在する場合は削除
     const alreadyPreview = document.querySelector('.preview')
