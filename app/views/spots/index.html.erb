@@ -17,7 +17,7 @@
       <button type="button" class="slick-prev"></button>
         <% @spots.each do |spot| %>
           <div class="contain">
-            <%= link_to image_tag(spot.spot_image, class:"spot-image"), spot_path(spot) %>
+            <%= link_to image_tag(spot.spot_images[0], class:"spot-image"), spot_path(spot) %>
             <%= link_to spot.name, spot_path(spot) %>
             <span><i class="fa-solid fa-location-dot"></i><%= spot.address %></span>
             <div id="index_favorites_buttons_<%= spot.id %>">

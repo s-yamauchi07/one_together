@@ -1,6 +1,6 @@
 class SpotTag
   include ActiveModel::Model
-  attr_accessor :name, :phone_number, :website, :address, :latitude, :longitude, :prefecture_id, :spot_type_id, :dog_permission_id, :comment,:spot_image,:dog_size_id, :user_id, :tag_name, :tag_ids
+  attr_accessor :name, :phone_number, :website, :address, :latitude, :longitude, :prefecture_id, :spot_type_id, :dog_permission_id, :comment,:spot_images,:dog_size_id, :user_id, :tag_name, :tag_ids
 
   # spotモデル/tagモデルのバリデーション
   with_options presence: true do
@@ -10,7 +10,7 @@ class SpotTag
     validates :address
     validates :latitude
     validates :longitude
-    validates :spot_image
+    validates :spot_images
   end
 
   # with_options numericality: { message: "can't be blank"} do
@@ -31,7 +31,7 @@ class SpotTag
                         spot_type_id: spot_type_id,
                         dog_permission_id: dog_permission_id,
                         comment: comment,
-                        spot_image: spot_image,
+                        spot_images: spot_images,
                         dog_size_id: dog_size_id,
                         user_id: user_id
     )

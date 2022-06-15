@@ -91,8 +91,19 @@
         <div id="place-image" class="right-form">
           <p>画像</p>
           <div id="previews">
-            <%= f.label :spot_image,class: "fa-solid fa-camera fa-3x add-image" do %>
-            <%= f.file_field :spot_image, style: "display:none" %>
+            <%= f.label :spot_images,class: "fa-solid fa-camera fa-3x add-image",id:"data-index=0" do %>
+            <%= f.file_field :spot_images, name: "spot_tag[spot_images][]", data: {index: 0} %>
+            <% end %>
+          </div>
+          <div id="min-preview">
+            <%= f.label :spot_images,class: "fa-solid fa-camera fa-2x",id:"data-index=1" do %>
+            <%= f.file_field :spot_images, name: "spot_tag[spot_images][]", data: {index: 1} %>
+            <% end %>
+            <%= f.label :spot_images,class: "fa-solid fa-camera fa-2x",id:"data-index=2" do %>
+            <%= f.file_field :spot_images, name: "spot_tag[spot_images][]", data: {index: 2} %>
+            <% end %>
+            <%= f.label :spot_images,class: "fa-solid fa-camera fa-2x",id:"data-index=3" do %>
+            <%= f.file_field :spot_images, name: "spot_tag[spot_images][]", data: {index: 3} %>
             <% end %>
           </div>
         </div>
