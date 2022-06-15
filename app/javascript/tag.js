@@ -5,6 +5,42 @@ window.addEventListener('load', () => {
   // タグを保存するための配列を準備
   const tags = []
 
+  // タグの逐次機能実装
+  tagField.addEventListener('input', ()=> {
+    const keyword = tagField.value;
+    const XHR = new XMLHttpRequest();
+    XHR.open("GET",`/spots/tag_search/?keyword=${keyword}`, true);
+    XHR.responseType = "json"
+    XHR.send();
+
+    XHR.onload = () => {
+      const resultArea = document.getElementById('tag-search-result');
+      // 以前検索した結果をリセットする
+      resultArea.innerHTML = ""
+      
+      if (XHR.response) {
+        const resultsTag = XHR.response.keyword;
+        
+        resultsTag.forEach((result) => {
+          const childElement = document.createElement('div');
+          childElement.setAttribute('class', "child");
+          childElement.setAttribute('id', result.id);
+          childElement.innerHTML = result.tag_name;
+          resultArea.appendChild(childElement)
+
+          const clickElement = document.getElementById(result.id);
+          clickElement.addEventListener("click", () => {
+            document.getElementById('tag-name').value = clickElement.textContent;
+            clickElement.remove();
+            resultArea.innerHTML = ""
+          });
+        });
+      }
+    }
+  })
+
+
+  // タグ追加機能
   addTagBtn.addEventListener('click', () => {
     // 文字列.trim()で文字列から空白文字を削除
     const tagName = tagField.value.trim()
