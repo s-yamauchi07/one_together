@@ -1,5 +1,10 @@
 <div class="flash-message"><%= flash[:delete_alert] %></div>
 <div class="spot-details-wrapper">
+
+<%# LINEメッセージ %>
+<a class="js-sns-link" href="//timeline.line.me/social-plugin/share?url=&text=" target="_blank" rel="nofollow noopener noreferrer">LINE</a>
+
+<%# LINEメッセージ %>
   <div class="top-wrapper">
     <h2 class="spot-name"><%= @spot.name %></h2>
     <% if current_user == @spot.user %>

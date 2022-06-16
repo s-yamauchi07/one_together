@@ -1,5 +1,7 @@
 window.addEventListener('load', () => {
   const tagField = document.getElementById('tag-name')
+  if (!tagField) return null;
+
   const addTagBtn = document.getElementById('add-tag-btn')
   const tagList = document.getElementById('registration-table')
   // タグを保存するための配列を準備

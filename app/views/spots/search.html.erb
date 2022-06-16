@@ -25,7 +25,7 @@
   <% @results.each do |spot| %>
     <div class="spot-list">
       <%= @spot_num %>
-      <%= image_tag(spot.spot_image) %></p>
+      <%= image_tag(spot.spot_images[0]) %></p>
       <div class="spot-list-detail">
         <p class="spot-list-name"><%= spot.name %></p>
         <p><%= spot.address %></p>
