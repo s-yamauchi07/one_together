@@ -10,6 +10,7 @@ require("@rails/ujs").start()
 // require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
+require("../line_share");
 require("../map");
 require("../preview");
 require("../slide");
