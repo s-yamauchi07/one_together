@@ -1,40 +1,155 @@
 <div class="search-wrapper">
-<h1>こだわり検索</h1>
-  <%= search_form_for @q, url: search_spots_path do |f| %>
-    <%= f.label :name_cont, "施設名"%>
-    <%= f.search_field :name_cont, placeholder:'施設名'%>
-    <br>
-    <%= f.label :prefecture_id_in, "都道府県"%><br>
-    <%= f.collection_check_boxes(:prefecture_id_in, Prefecture.all, :id, :name, {include_blank: "---"})%>
-    <br>
-    <%= f.label :spot_type_id_in, "スポットタイプ"%>
-    <%= f.collection_check_boxes(:spot_type_id_in, SpotType.all, :id, :name, {include_blank: "---"})%>
-    <br>
-    <%= f.label :tags_tag_name_cont, "タグ"%>
-    <%= f.search_field :tags_tag_name_cont, placeholder:'タグ'%>
-    <br>
-    <%= f.submit '検索' %>
-  <% end %>
+  <div class="search-topside">
+    <div class="search-form">
+      <h1>こだわり検索</h1>
+      <%= search_form_for @q, url: search_spots_path do |f| %>
+        <div class="search-content">
+          <%= f.label :name_cont, "施設名", class:"label-name" %><br>
+          <%= f.search_field :name_cont, placeholder:'施設名'%>
+        </div>
+        <br>
 
-<div id="map">
-  ここにマップが入るよ
-</div>
+        <div class="search-content">
+          <label class="label-name">エリア</label>
+          <table class="search-prefecture">
+            <tr class="hokkaido">
+              <th class="area-name">北海道</th>
+              <th class="prefecture-name">
+                <input type="checkbox" name="q[prefecture_id_in][]" class="checkbox" value="1">北海道
+              </th>  
+            </tr>
+            <tr class="tohoku">
+              <th class="area-name">東北</th>
+              <th class="prefecture-name">
+                <input type="checkbox" name="q[prefecture_id_in][]" class="checkbox" value="2">青森県
+                <input type="checkbox" name="q[prefecture_id_in][]" class="checkbox" value="3">岩手県
+                <input type="checkbox" name="q[prefecture_id_in][]" class="checkbox" value="4">宮城県
+                <input type="checkbox" name="q[prefecture_id_in][]" class="checkbox" value="5">秋田県
+                <input type="checkbox" name="q[prefecture_id_in][]" class="checkbox" value="6">山形県
+                <input type="checkbox" name="q[prefecture_id_in][]" class="checkbox" value="7">福島県
+              </th>
+            </tr>
+            <tr class="kanto">
+              <th class="area-name">関東</th>
+              <th class="prefecture-name">
+                <input type="checkbox" name="q[prefecture_id_in][]" class="checkbox" value="8">茨城県
+                <input type="checkbox" name="q[prefecture_id_in][]" class="checkbox" value="9">栃木県
+                <input type="checkbox" name="q[prefecture_id_in][]" class="checkbox" value="10">群馬県
+                <input type="checkbox" name="q[prefecture_id_in][]" class="checkbox" value="11">埼玉県
+                <input type="checkbox" name="q[prefecture_id_in][]" class="checkbox" value="12">千葉県
+                <input type="checkbox" name="q[prefecture_id_in][]" class="checkbox" value="13">東京都
+                <input type="checkbox" name="q[prefecture_id_in][]" class="checkbox" value="14">神奈川県
+              </th>
+            </tr>
+            <tr class="chubu">
+              <th class="area-name">中部</th>
+              <th class="prefecture-name">
+                <input type="checkbox" name="q[prefecture_id_in][]" class="checkbox" value="15">新潟県
+                <input type="checkbox" name="q[prefecture_id_in][]" class="checkbox" value="16">富山県
+                <input type="checkbox" name="q[prefecture_id_in][]" class="checkbox" value="17">石川県
+                <input type="checkbox" name="q[prefecture_id_in][]" class="checkbox" value="18">福井県
+                <input type="checkbox" name="q[prefecture_id_in][]" class="checkbox" value="19">山梨県
+                <input type="checkbox" name="q[prefecture_id_in][]" class="checkbox" value="20">長野県
+                <input type="checkbox" name="q[prefecture_id_in][]" class="checkbox" value="21">岐阜県
+                <input type="checkbox" name="q[prefecture_id_in][]" class="checkbox" value="22">静岡県
+                <input type="checkbox" name="q[prefecture_id_in][]" class="checkbox" value="23">愛知県
+              </th>
+            </tr>
+            <tr class="kinki">
+              <th class="area-name">近畿</th>
+              <th class="prefecture-name">
+                <input type="checkbox" name="q[prefecture_id_in][]" class="checkbox" value="24">三重県
+                <input type="checkbox" name="q[prefecture_id_in][]" class="checkbox" value="25">滋賀県
+                <input type="checkbox" name="q[prefecture_id_in][]" class="checkbox" value="26">京都府
+                <input type="checkbox" name="q[prefecture_id_in][]" class="checkbox" value="27">大阪府
+                <input type="checkbox" name="q[prefecture_id_in][]" class="checkbox" value="28">兵庫県
+                <input type="checkbox" name="q[prefecture_id_in][]" class="checkbox" value="29">奈良県
+                <input type="checkbox" name="q[prefecture_id_in][]" class="checkbox" value="30">和歌山県
+              </th>
+            </tr>
+            <tr class="chugoku">
+              <th class="area-name">中国</th>
+              <th class="prefecture-name">
+                <input type="checkbox" name="q[prefecture_id_in][]" class="checkbox" value="31">鳥取県
+                <input type="checkbox" name="q[prefecture_id_in][]" class="checkbox" value="32">島根県
+                <input type="checkbox" name="q[prefecture_id_in][]" class="checkbox" value="33">岡山県
+                <input type="checkbox" name="q[prefecture_id_in][]" class="checkbox" value="34">広島県
+                <input type="checkbox" name="q[prefecture_id_in][]" class="checkbox" value="35">山口県
+              </th>
+            </tr>
+            <tr class="shikoku">
+              <th class="area-name">四国</th>
+              <th class="prefecture-name">
+                <input type="checkbox" name="q[prefecture_id_in][]" class="checkbox" value="36">徳島県
+                <input type="checkbox" name="q[prefecture_id_in][]" class="checkbox" value="37">香川県
+                <input type="checkbox" name="q[prefecture_id_in][]" class="checkbox" value="38">愛媛県
+                <input type="checkbox" name="q[prefecture_id_in][]" class="checkbox" value="39">高知県
+              </th>
+            </tr>
+            <tr class="kyusyu">
+              <th class="area-name">九州</th>
+              <th class="prefecture-name">
+                <input type="checkbox" name="q[prefecture_id_in][]" class="checkbox" value="40">福岡県
+                <input type="checkbox" name="q[prefecture_id_in][]" class="checkbox" value="41">佐賀県
+                <input type="checkbox" name="q[prefecture_id_in][]" class="checkbox" value="42">長崎県
+                <input type="checkbox" name="q[prefecture_id_in][]" class="checkbox" value="43">熊本県
+                <input type="checkbox" name="q[prefecture_id_in][]" class="checkbox" value="44">大分県
+                <input type="checkbox" name="q[prefecture_id_in][]" class="checkbox" value="45">宮崎県
+                <input type="checkbox" name="q[prefecture_id_in][]" class="checkbox" value="46">鹿児島県
+              </th>
+            </tr>
+            <tr class="okinawa">
+              <th class="area-name">沖縄</th>
+              <th class="prefecture-name">
+                <input type="checkbox" name="q[prefecture_id_in][]" class="checkbox" value="47">沖縄県
+              </th>
+            </tr>
+          </table>
+        </div>
+        <br>
+        <div class="search-content">
+          <%= f.label :spot_type_id_in, "スポットタイプ",class:"label-name" %><br>
+          <div class="checkbox">
+          <%= f.collection_check_boxes(:spot_type_id_in, SpotType.all, :id, :name, {include_blank: "---"})%>
+          </div>
+        </div>
+        <br>
+        <div class="search-content">
+          <%= f.label :tags_tag_name_cont, "タグ",class:"label-name" %><br>
+          <%= f.search_field :tags_tag_name_cont, placeholder:'タグ'%>
+          <br>
+        </div>
+        <%= f.submit 'search',class:"search-btn" %>
+      <% end %>
+    </div>
+  </div>
 
-<h1>検索結果</h1>
-<% if @results.present? %>
-  <% @results.each do |spot| %>
-    <div class="spot-list">
-      <%= @spot_num %>
-      <%= image_tag(spot.spot_images[0]) %></p>
-      <div class="spot-list-detail">
-        <p class="spot-list-name"><%= spot.name %></p>
-        <p><%= spot.address %></p>
-        <p><%= spot.spot_type.name %></p>
+  <div class="search-result-wrapper">
+    <h1>検索結果</h1>
+    <div class="search-results">
+      <div class="search-result">
+        <% if @results.present? %>
+          <% @results.each do |spot| %>
+            <div class="result-spot-list">
+              <i class="fa-solid fa-location-pin fa-3x">
+              <span class="spot-num"><%= @spot_num %></span>
+              </i>
+              <div class="result-spot-list-detail">
+                <p class="result-spot-list-name"><%= spot.name %></p>
+                <p><%= spot.address %></p>
+                <p><%= spot.spot_type.name %></p>
+              </div>
+              <%= image_tag(spot.spot_images[0]) %></p>
+            </div> 
+            <% @spot_num += 1%>
+          <% end %>
+        <% else %>
+          <p>マッチするスポットがありませんでした</p>
+        <% end %>
       </div>
-    </div> 
-    <% @spot_num += 1%>
-  <% end %>
-<% else %>
-  <p>マッチするスポットがありませんでした</p>
-<% end %>  
+      <div id="map">
+        ここにマップが入るよ
+      </div>
+    </div>
+  </div>
 </div>
