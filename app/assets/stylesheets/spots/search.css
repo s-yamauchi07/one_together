@@ -1,0 +1,102 @@
+
+.search-wrapper h1 {
+  text-align: center;
+  padding: 2.5rem 0 0;
+}
+
+.search-topside {
+  background-image: url("search_view_bg.jpg");
+  padding: 2.5rem 0;
+}
+
+.search-form {
+  width: 60%;
+  margin: 0 auto;
+  background-color: #f8f5f2;
+}
+
+#spot_search {
+  padding: 2.5rem;
+}
+
+#q_name_cont,
+#q_tags_tag_name_cont{
+  width: 50%;
+}
+
+#spot_search .search-btn {
+  display: block;
+  padding: 5px 20px;
+  margin: 40px auto 0;
+}
+
+.label-name {
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+.area-name {
+  padding-right: 0.625rem;
+  border-bottom: 1px solid #d5c5a5;
+}
+
+.prefecture-name {
+  text-align: left;
+  font-weight: 100;
+  border-bottom: 1px solid #d5c5a5;
+}
+
+.prefecture-name input {
+  margin-left: 0.625rem;
+}
+
+.checkbox input {
+  margin-left: 0.625rem;
+}
+
+.search-result-wrapper {
+  background-color:#f8f5f2;
+}
+
+.search-results {
+  display: flex;
+  justify-content: space-around;
+  padding: 2.5rem 0;
+}
+
+.result-spot-list {
+  width: 90%;
+  margin: 0 auto 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.25rem;
+  border:1px solid #d5c5a5;
+}
+
+.fa-location-pin {
+  position: relative;
+  color: red;
+  margin-right: 1rem;
+}
+
+.spot-num {
+  position: absolute;
+  top: 10px;
+  left: 13px;
+  color: #fff;
+  font-size: 1rem;
+}
+
+.result-spot-list-detail {
+  width: 25rem;
+}
+
+.result-spot-list img {
+  width: 150px;
+  height: 150px;
+}
+
+.result-spot-list-name {
+  font-size: 1.25rem;
+}

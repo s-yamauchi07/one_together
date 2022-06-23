@@ -47,7 +47,7 @@
   <ul class="search-list-area">
     <li id="hokkaido" class="area"><%= link_to '北海道', search_spots_path(q: { prefecture_id_eq: 1 })%></li>
     <li id="tohoku" class="area"><%= link_to '東北', search_spots_path(q: { prefecture_id_matches_any: [2,3,4,5,6,7] })%></li>
-    <li id="kanto" class="area"><%= link_to '関東', search_spots_path(q: { prefecture_id_matches_any: [6,9,10,11,12,13,14] })%></li>
+    <li id="kanto" class="area"><%= link_to '関東', search_spots_path(q: { prefecture_id_matches_any: [8,9,10,11,12,13,14] })%></li>
     <li id="chubu" class="area"><%= link_to '中部', search_spots_path(q: { prefecture_id_matches_any: [15,16,17,18,19,20,21,22,23] })%></li>
     <li id="kinki" class="area"><%= link_to '近畿', search_spots_path(q: { prefecture_id_matches_any: [24,25,26,27,28,29,30] })%></li>
     <li id="chugoku" class="area"><%= link_to '中国', search_spots_path(q: { prefecture_id_matches_any: [31,32,33,34,35] })%></li>
