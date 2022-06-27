@@ -1,4 +1,5 @@
 window.addEventListener('load', () => {
+  console.log('読み込まれた')
   const registrationCard = document.getElementById('registration-card')
 
   if (!registrationCard) return null;
@@ -6,6 +7,7 @@ window.addEventListener('load', () => {
 
   const registrationImageField = document.getElementById('user_dog_image')
   registrationImageField.addEventListener('change',(e)=> {
+
     const preReview = document.querySelector('.preview-image')
     if (preReview) {
       preReview.remove();

@@ -64,7 +64,7 @@
 <ul class="tab_detail_wrap">
   <% @user.spots.each do |user_spot| %>
     <div class="spot-list">
-      <%= image_tag(user_spot.spot_image) %></p>
+      <%= image_tag(user_spot.spot_images[0]) %></p>
       <div class="spot-list-detail">
         <p class="spot-list-name"><%= user_spot.name %></p>
         <p><%= user_spot.address %></p>

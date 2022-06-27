@@ -1,57 +1,58 @@
 <div class="registration-wrapper">
-  <div class="registration-card">
+  <div id="registration-card">
     <h2 class="header-name">Edit User Information</h2>
-    <%= form_with model:@user, url:user_registration_path, method: :patch, local: true do |f| %>
+    <%= form_with model:@user, url:user_registration_path,local: true do |f| %>
       <%= render "devise/shared/error_messages", resource: resource %>
 
-      <div class="field">
-        <%= f.label :nickname %><br />
-        <%= f.text_field :nickname, autofocus: true, autocomplete: "nickname" %>
-      </div> 
+      <div class="user-form">
+        <div class="user-form-left">
+          <div class="field">
+            <%= f.label :nickname %><br />
+            <%= f.text_field :nickname, autofocus: true, autocomplete: "nickname" %>
+          </div> 
 
-      <div class="field">
-        <%= f.label :email %><br />
-        <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+          <div class="field">
+            <%= f.label :email %><br />
+            <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+          </div>
+
+          <div class="field">
+            <%= f.label :password %>
+            <% if @minimum_password_length %>
+            <em>(<%= @minimum_password_length %> characters minimum)</em>
+            <% end %><br />
+            <%= f.password_field :password, autocomplete: "new-password" %>
+          </div>
+
+          <div class="field">
+            <%= f.label :password_confirmation %><br />
+            <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+          </div>
+
+          <div class="field">
+            <%= f.label :dog_name %><br />
+            <%= f.text_field :dog_name, autofocus: true, autocomplete: "dog_name" %>
+          </div> 
+
+          <div class="field">
+            <%= f.label :dog_type %><br />
+            <%= f.collection_select(:dog_type_id, DogType.all, :id, :name, {} ) %>
+          </div>
+        </div>
+
+        <div class="user-form-right">
+          <div class="field">
+            <p>DogImage</p>
+            <%= f.label :dog_image, id:"registration-dog-image",class: "fa-regular fa-image fa-10x" do %>
+              <%= f.file_field :dog_image, style: "display: none;" %>
+            <% end %>
+          </div>
+        </div>
       </div>
 
-      <div class="field">
-        <%= f.label :password %>
-        <% if @minimum_password_length %>
-        <em>(<%= @minimum_password_length %> characters minimum)</em>
-        <% end %><br />
-        <%= f.password_field :password, autocomplete: "new-password" %>
-      </div>
-
-      <div class="field">
-        <%= f.label :password_confirmation %><br />
-        <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-      </div>
-
-      <div class="field">
-        <%= f.label :dog_name %><br />
-        <%= f.text_field :dog_name, autofocus: true, autocomplete: "dog_name" %>
-      </div> 
-
-      <div class="field">
-        <%= f.label :dog_type %><br />
-        <%= f.collection_select(:dog_type_id, DogType.all, :id, :name, {} ) %>
-      </div>
-
-      <div class="field">
-        <p>Dogtype</p>
-        <%= f.label :dog_image,class: "fa-regular fa-image fa-3x" do %>
-          <%= f.file_field :dog_image, style: "display: none;" %>
-        <% end %>
-      </div>
-
-      <div class="field">
-        <%= f.label :current_password %><span>(*変更にはpasswordが必要です)</span><br />
-        <%= f.password_field :current_password, autofocus: true, autocomplete: "current_password" %>
-      </div>
-
-      <div class="actions">
-        <%= f.submit "Sign up", class:"sign-up-btn"%>
-      </div>
-    <% end %>
+        <div class="actions">
+          <%= f.submit "Sign up", class:"sign-up-btn"%>
+        </div>
+      <% end %>
   </div>  
 </div>
