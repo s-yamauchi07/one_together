@@ -12,6 +12,7 @@ require("@rails/activestorage").start()
 require("channels")
 require("../line_share");
 require("../map");
+require("../user_registration_preview");
 require("../preview");
 require("../slide");
 require("../show_map");
