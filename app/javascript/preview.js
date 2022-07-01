@@ -1,16 +1,17 @@
 document.addEventListener('DOMContentLoaded', () => {
   // 新規投稿・編集ページのフォームを取得
   const postForm = document.getElementById('registration-form');
-  const cameraIcon = document.querySelector('.fa-camera')
 
   // 新規投稿・編集ページのフォームがないならここで終了。「!」は論理否定演算子。
   if (!postForm) return null;
 
   const fileField = document.querySelectorAll('input[type="file"][name="spot_tag[spot_images][]"]')
+  console.log(fileField)
   fileField.forEach(function(list) {
   list.addEventListener('change', (e) => {
     // 何枚目の操作をしているかを取得
     const dataIndex = e.target.getAttribute('data-index');
+    console.log(dataIndex)
     const addPreview = document.getElementById(`data-index=${dataIndex}`)
 
     // 古いプレビューが存在する場合は削除
