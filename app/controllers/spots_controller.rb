@@ -29,10 +29,19 @@ class SpotsController < ApplicationController
   end
 
   def edit
+    spot_tag_attributes = @spot.attributes
+    @spot_tag = SpotTag.new(spot_tag_attributes)
   end
-
+  
   def update
-    if @spot.update(set_address)
+    @spot_tag = SpotTag.new(set_address)
+    @spot_tag.spot_images ||= @spot.spot_images.blobs
+    @spot_tag.latitude ||= @spot.latitude
+    @spot_tag.longitude ||= @spot.longitude
+
+
+    if @spot_tag.valid?
+      @spot_tag.update(set_address,@spot)
       redirect_to spot_path(@spot)
     else
       render :edit
