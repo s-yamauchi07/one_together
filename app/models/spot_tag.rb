@@ -1,6 +1,7 @@
 class SpotTag
   include ActiveModel::Model
-  attr_accessor :name, :phone_number, :website, :address, :latitude, :longitude, :prefecture_id, :spot_type_id, :dog_permission_id, :comment,:spot_images,:dog_size_id, :user_id, :tag_name, :tag_ids
+  attr_accessor :name, :phone_number, :website, :address, :latitude, :longitude, :prefecture_id, :spot_type_id, :dog_permission_id, :comment,:spot_images,:dog_size_id, :user_id, :tag_name, :tag_ids,
+  :id, :created_at, :updated_at, :datetime
 
   # spotモデル/tagモデルのバリデーション
   with_options presence: true do
@@ -44,6 +45,24 @@ class SpotTag
       # 中間テーブルへの保存
       SpotTagRelation.create(spot_id: spot.id, tag_id: tag.id)
     end
+
+  end
+
+  def update(params,spot)
+    # タグづけ解除。
+    spot.spot_tag_relations.destroy_all
+    tag_ids = params.delete(:tag_ids)
+
+    edit_spot = spot.update(params)
+
+    tag_ids&.each do |tag_name|
+      tag = Tag.where(tag_name: tag_name).first_or_initialize if tag_name.present?
+      tag.save if tag_name.present?
+      
+      # 中間テーブルへの保存
+      SpotTagRelation.create(spot_id: spot.id, tag_id: tag.id)
+    end
+
 
   end
 
