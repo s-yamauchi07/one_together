@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users, controllers: {
-    registrations: "users/registrations"
+    registrations: "users/registrations",
   }
   root to: "homes#index"
   resources :spots do
@@ -13,4 +13,7 @@ Rails.application.routes.draw do
     end
   end
   resources :users, only: [:show]
+  # asオプションを付けることで、prefixに任意のpath名を設定できる
+  get "/users/:id/unsubscribe" => "users#unsubscribe", as: "unsubscribe"
+  patch "/users/:id/withdrawal" => "users#withdrawal", as: "withdrawal"
 end

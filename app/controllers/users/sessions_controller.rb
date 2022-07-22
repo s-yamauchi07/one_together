@@ -24,4 +24,11 @@ class Users::SessionsController < Devise::SessionsController
   # def configure_sign_in_params
   #   devise_parameter_sanitizer.permit(:sign_in, keys: [:attribute])
   # end
+  protected
+
+  def reject_user
+    binding.pry
+    @user = User.find_by(name: params[:user][:name])
+
+  end
 end

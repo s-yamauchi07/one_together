@@ -12,8 +12,6 @@ class ApplicationController < ActionController::Base
   private
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: [:nickname, :dog_name, :dog_type_id, :dog_image])
-
-    devise_parameter_sanitizer.permit(:account_update, keys: [:nickname, :dog_name, :dog_type_id, :dog_image])
   end
 
 end
