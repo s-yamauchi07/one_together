@@ -19,7 +19,7 @@
           <div class="field">
             <%= f.label :password %>
             <% if @minimum_password_length %>
-            <em>(<%= @minimum_password_length %> characters minimum)</em>
+            <span>(<%= @minimum_password_length %>文字以上の英数字混合)</span>
             <% end %><br />
             <%= f.password_field :password, autocomplete: "new-password" %>
           </div>
@@ -27,6 +27,11 @@
           <div class="field">
             <%= f.label :password_confirmation %><br />
             <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+          </div>
+
+          <div class="field">
+            <%= f.label :current_password %>(変更には現在のpasswordが必要です)<br />
+            <%= f.password_field :current_password, autocomplete: "new-password" %>
           </div>
 
           <div class="field">
@@ -43,7 +48,8 @@
         <div class="user-form-right">
           <div class="field">
             <p>DogImage</p>
-            <%= f.label :dog_image, id:"registration-dog-image",class: "fa-regular fa-image fa-10x" do %>
+            <%= f.label :dog_image,id:"registration-dog-image" do %>
+              <%= image_tag @user.dog_image, class:"preview-image"%>
               <%= f.file_field :dog_image, style: "display: none;" %>
             <% end %>
           </div>
