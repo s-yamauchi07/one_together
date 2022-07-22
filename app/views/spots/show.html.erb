@@ -1,28 +1,26 @@
 <div class="flash-message"><%= flash[:delete_alert] %></div>
 <div class="spot-details-wrapper">
-
-<%# LINEメッセージ %>
-<a class="js-sns-link" href="//timeline.line.me/social-plugin/share?url=&text=" target="_blank" rel="nofollow noopener noreferrer">LINE</a>
-
-<%# LINEメッセージ %>
   <div class="top-wrapper">
     <h2 class="spot-name"><%= @spot.name %></h2>
     <% if current_user == @spot.user %>
       <div class="contributor-btn">
-        <%= link_to edit_spot_path(@spot), class:"edit btn" do %>
-          <i class="fa-solid fa-pen-to-square fa-2x"></i>
-        <% end %>
-        <%= link_to spot_path(@spot), method: :delete, class:"delete btn" do %>
-          <i class="fa-solid fa-trash-can fa-2x"></i>
-        <% end %>
+        <%= link_to "Edit",edit_spot_path(@spot), class:"edit btn"%>
+        <%= link_to "Delete",spot_path(@spot), method: :delete, class:"delete btn"%>
       </div>
     <% end %>
   </div>
   <div class="spot-details">
     <div class="spot-image-wrapper">
-      <div class="show-spot-image">
-        <% @spot.spot_images.each do |spot_image|%>
-          <%= image_tag spot_image %>
+      <div class="show-spot-image-bg">
+        <%= image_tag @spot.spot_images[0] %>
+      </div>
+      <div class="show-spot-image-sm">
+        <% @spot.spot_images[1..3].each do |spot_image|%>
+          <% if spot_image.present? %>
+            <%= image_tag spot_image %>
+          <% else %>
+            <%= image_tag "icons/no_image.png" %>
+          <% end %>
         <% end %>
       </div>
       <% if current_user != @spot.user %>
@@ -44,11 +42,12 @@
         </div>
       </div>
       <div class="contributor-comment">
+        <h3>COMMENT</h3>
         <%= @spot.comment %>
       </div>
       <div class="contributor-tags">
         <% @tags.each do |tag|%>
-          <%= tag.tag_name%>
+          <span><%= tag.tag_name%></span>
         <% end %>
         <%#= タグ一覧表示をする場所%>
       </div>
@@ -75,24 +74,31 @@
   </div>
   <div class="spot-addresses">
     <div id="spot-map"></div>
-    <table class="spot-address">
-      <tr>
-        <th >都道府県</th>
-        <td><%= @spot.prefecture.name %></td>
-      </tr>
-      <tr>
-        <th >住所</th>
-        <td><%= @spot.address %></td>
-      </tr>
-      <tr>
-        <th>電話番号</th>
-        <td><%= @spot.phone_number %></td>
-      </tr>
-      <tr>
-        <th>ウェブサイト</th>
-        <td><%= @spot.website %></td>
-      </tr>
-    </table>
+    <div class="spot-address">
+      <h2>SPOT ADDRESS</h2>
+      <div class="spot-info">
+        <p>都道府県</p>
+        <div><%= @spot.prefecture.name %></div>
+      </div>
+      <div class="spot-info">
+        <p>住所</p>
+        <div><%= @spot.address %></div>
+      </div>
+      <div class="spot-info">
+        <p>電話番号</p>
+        <div><%= @spot.phone_number %></div>
+      </div>
+      <div class="spot-info">
+        <p>ウェブサイト</p>
+        <div><%= @spot.website %></div>
+      </div>
+      <%# LINEメッセージ %>
+      <div class="line-btn">
+      <a class="js-sns-link" href="//timeline.line.me/social-plugin/share?url=&text=" target="_blank" rel="nofollow noopener noreferrer"><div class="line-it-button" data-lang="ja" data-type="share-a" data-color="default" data-size="large" data-count="false" data-ver="3" style="display: none;"></div>
+      <script src="https://www.line-website.com/social-plugins/js/thirdparty/loader.min.js" async="async" defer="defer"></script></a>
+      <%# LINEメッセージ %>
+      </div>
+    </div>
   </div>
   <div class="comments-wapper">
     <% if user_signed_in? && current_user != @spot.user %>
@@ -109,30 +115,34 @@
       <% end %>
     <% end %>
 
-    <h2>口コミ一覧</h2>
     <% if user_signed_in? %>
-      <div class="comment-lists">
-        <% @comments.each do |comment| %>
-          <li class="comment-list">
-            <div class="comment-left">
-              <%= image_tag(comment.user.dog_image, class:"comment-user-prof")%>
-              <div class="user-comment-content">
-                <div class="comment-top">
-                  <p class="comment-user-name"><%= comment.user.nickname %></p>
-                  <p class="user-comment"><%= comment.content %></p>
-                </div>
-                <div class="comment-bottom">
-                    <% if current_user == comment.user %>
-                      <span id="edit-comment"><%= link_to "edit", edit_spot_comment_path(@spot, comment) %></span>
-                      <span id="delete-comment"><%= link_to "delete", spot_comment_path(@spot, comment), method: :delete %></span>
-                    <% end %>
+      <h2>口コミ一覧</h2>
+      <% if @comments.present? %>
+        <div class="comment-lists">
+          <% @comments.each do |comment| %>
+            <li class="comment-list">
+              <div class="comment-left">
+                <%= image_tag(comment.user.dog_image, class:"comment-user-prof")%>
+                <div class="user-comment-content">
+                  <div class="comment-top">
+                    <p class="comment-user-name"><%= comment.user.nickname %></p>
+                    <p class="user-comment"><%= comment.content %></p>
+                  </div>
+                  <div class="comment-bottom">
+                      <% if current_user == comment.user %>
+                        <span id="edit-comment"><%= link_to "edit", edit_spot_comment_path(@spot, comment) %></span>
+                        <span id="delete-comment"><%= link_to "delete", spot_comment_path(@spot, comment), method: :delete %></span>
+                      <% end %>
+                  </div>
                 </div>
               </div>
-            </div>
-            <%= image_tag(comment.comment_image, class:"comment-img") %>
-          </li>
-        <% end %>
-      </div>
+              <%= image_tag(comment.comment_image, class:"comment-img") %>
+            </li>
+          <% end %>
+        </div>
+      <% else %>
+        <p>まだ口コミがありません</p>
+      <% end %>
     <% end %>
   </div>
 </div>
