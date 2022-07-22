@@ -1,13 +1,14 @@
 # README
 
 ## users table
-|Column            |Type    |Options                   |
-|------------------|--------|--------------------------|
-|nickname          |string  |null: false               |
-|email             |string  |null: false, unique: true |
-|encrypted_password|string  |null: false               |
-|dog_name          |string  |                          |
-|dog_type_id       |integer |                          |
+|Column            |Type    |Options                    |
+|------------------|--------|---------------------------|
+|nickname          |string  |null: false                |
+|email             |string  |null: false, unique: true  |
+|encrypted_password|string  |null: false                |
+|dog_name          |string  |                           |
+|dog_type_id       |integer |                           |
+|is_deleted        |boolean |null: false, default: false|
 
 # Association
 has_many: spots
