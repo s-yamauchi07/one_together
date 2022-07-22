@@ -166,8 +166,8 @@
 }
 
 .about-spot-type img {
-  width: 150px;
-  height: 150px;
+  width: 100px;
+  height: 100px;
 }
 
 .about-spot-title {
@@ -182,7 +182,7 @@
 
 #spot-map {
   width: 60%;
-  height: 400px;
+  height: 300px;
 }
 
 .spot-address {
@@ -190,9 +190,18 @@
   margin-left: 2.5rem;
 }
 
-.spot-address th {
-  text-align: left;
-  width: 100px;
+.spot-info {
+  display: flex;
+  margin-bottom: 0.5rem;
+}
+
+.spot-info p {
+  font-weight: bold;
+  width: 120px;
+}
+
+.line-btn {
+  margin-top: 1.875rem;
 }
 
 /* コメント投稿 */
