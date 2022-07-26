@@ -1,0 +1,22 @@
+<h2>退会のお手続き<h2>
+  <p>退会されますと、全てのサービスがご利用いただけなくなります。</p><br>
+  <p>本当に退会してもよろしいですか？</p><br>
+
+  <%= link_to "退会する", withdrawal_path(current_user), method: :patch, data: { confilm: "本当に退会しますか？"} %>
+  <%= link_to "退会するのをやめる", user_path(current_user) %>
+
+<div class="modal">
+  <%= form_with model:@user,url: withdrawal_path(current_user), method: :patch,local: true do |f| %>
+    <div class="field">
+      <%= f.label :password %>
+      <%= f.password_field :password, autocomplete: "password" %>
+    </div>
+    <div class="field">
+      <%= f.label :password_confirmation %>
+      <%= f.password_field :password_confirmation, autocomplete: "password" %>
+    </div>
+    <div class="actions">
+      <%= f.submit "退会する", class:"sign-up-btn"%>
+    </div>
+  <% end %>
+</div>

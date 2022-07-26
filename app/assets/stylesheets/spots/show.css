@@ -121,6 +121,15 @@
   border-radius: 50%;
 }
 
+.withdraw-user-info {
+  text-align: center;
+}
+
+.withdraw-user-info img {
+  margin: 10px auto;
+  width: 100px;
+}
+
 .contributor-comment {
   margin: 2rem 0;
   padding:20px;
