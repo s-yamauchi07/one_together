@@ -129,10 +129,18 @@
           <% @comments.each do |comment| %>
             <li class="comment-list">
               <div class="comment-left">
-                <%= image_tag(comment.user.dog_image, class:"comment-user-prof")%>
+                <% if comment.user.is_deleted == false %>
+                  <%= image_tag(comment.user.dog_image, class:"comment-user-prof")%>
+                <% else %>
+                  <%= image_tag "icons/withdraw_user.png", class:"comment-user-prof"%>
+                <% end %>
                 <div class="user-comment-content">
                   <div class="comment-top">
-                    <p class="comment-user-name"><%= comment.user.nickname %></p>
+                    <% if comment.user.is_deleted == false %>
+                      <p class="comment-user-name"><%= comment.user.nickname %></p>
+                    <% else %>
+                      <p class="comment-user-name">退会済みのユーザー</p>
+                    <% end %>
                     <p class="user-comment"><%= comment.content %></p>
                   </div>
                   <div class="comment-bottom">

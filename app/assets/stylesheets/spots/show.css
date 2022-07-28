@@ -19,6 +19,8 @@
   padding: 0 10px;
   text-decoration: none;
   color: #078080;
+  cursor: pointer;
+  border-radius: 20rem;
 }
 
 .fa-location-dot {
@@ -111,6 +113,12 @@
 
 .contributor-detail p {
   margin-left: 1.875rem;
+}
+
+.fa-user,
+.fa-dog,
+.fa-paw {
+  margin-right: 10px;
 }
 
 #user_image {

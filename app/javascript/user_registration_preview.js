@@ -1,5 +1,4 @@
 window.addEventListener('load', () => {
-  console.log('読み込まれた')
   const registrationCard = document.getElementById('registration-card')
 
   if (!registrationCard) return null;
