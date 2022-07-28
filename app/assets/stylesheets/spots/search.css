@@ -1,7 +1,7 @@
 
 .search-wrapper h1 {
   text-align: center;
-  padding: 2.5rem 0 0;
+  padding-bottom: 2.5rem;
 }
 
 .search-topside {
@@ -13,9 +13,6 @@
   width: 60%;
   margin: 0 auto;
   background-color: #f8f5f2;
-}
-
-#spot_search {
   padding: 2.5rem;
 }
 

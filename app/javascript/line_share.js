@@ -1,7 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
   let url = location.href
   let snsLinks = $(".js-sns-link")
-  console.log(snsLinks)
   for(let i = 0; i<snsLinks.length; i++) {
     let href = snsLinks.eq(i).attr('href');
 
