@@ -33,6 +33,7 @@
       <% end %>
     </div>
     <div class="contributor-info">
+      <% if @spot.user.is_deleted == false %>
       <div class="contributor-prof">
         <%= image_tag(@spot.user.dog_image, id:"user_image") %>
         <div class="contributor-detail">
@@ -41,6 +42,12 @@
           <p><i class="fa-solid fa-paw"></i><%= @spot.user.dog_type.name %></p>
         </div>
       </div>
+      <% else %>
+      <div class="withdraw-user-info">
+        <div><%= image_tag "icons/withdraw_user.png" %></div>
+        <p><i class="fa-solid fa-user"></i>退会済みのユーザー</p>
+      </div>
+      <% end %>
       <div class="contributor-comment">
         <h3>COMMENT</h3>
         <%= @spot.comment %>
@@ -122,10 +129,18 @@
           <% @comments.each do |comment| %>
             <li class="comment-list">
               <div class="comment-left">
-                <%= image_tag(comment.user.dog_image, class:"comment-user-prof")%>
+                <% if comment.user.is_deleted == false %>
+                  <%= image_tag(comment.user.dog_image, class:"comment-user-prof")%>
+                <% else %>
+                  <%= image_tag "icons/withdraw_user.png", class:"comment-user-prof"%>
+                <% end %>
                 <div class="user-comment-content">
                   <div class="comment-top">
-                    <p class="comment-user-name"><%= comment.user.nickname %></p>
+                    <% if comment.user.is_deleted == false %>
+                      <p class="comment-user-name"><%= comment.user.nickname %></p>
+                    <% else %>
+                      <p class="comment-user-name">退会済みのユーザー</p>
+                    <% end %>
                     <p class="user-comment"><%= comment.content %></p>
                   </div>
                   <div class="comment-bottom">

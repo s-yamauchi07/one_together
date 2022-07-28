@@ -137,7 +137,7 @@
 
 /* 検索画面 */
 .wrapper {
-  padding-top: 2.5rem;
+  padding: 2.5rem;
   min-height: calc(100vh - 8rem);
 }
 

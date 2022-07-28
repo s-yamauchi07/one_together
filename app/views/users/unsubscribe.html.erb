@@ -1,0 +1,28 @@
+<div class="wrapper">
+  <div id="overlay" class="overlay"></div>
+  <%# モーダルウィンドウ %>
+  <div id="modal-window">
+    <div class="button-close"><i class="fa-solid fa-square-xmark fa-2x"></i></div>
+    <div class="confirm-wrapper">
+      <p>以下アカウントを削除します</p>
+      <div class="withdraw-info">
+        <%= image_tag @user.dog_image %>
+        <p><i class="fa-solid fa-user"></i><%= @user.nickname %></p>
+      </div>
+    <%= link_to "OK", withdrawal_path, method: :patch, class:"btn" %>
+    </div>
+  </div>
+<%# モーダルウィンドウ %>
+
+  <div class="withdraw-wrapper">
+    <h2>退会のお手続き</h2>
+    <p>退会されますと、全てのサービスがご利用いただけなくなります。</p><br>
+    <p>本当に退会してもよろしいですか？</p><br>
+
+    <div class="button-list">
+      <button class="button-open btn">退会する</button>
+      <%= link_to "キャンセル", user_path(current_user),class:"cancel btn" %>
+    </div>
+  </div>
+
+</div>

@@ -19,6 +19,8 @@
   padding: 0 10px;
   text-decoration: none;
   color: #078080;
+  cursor: pointer;
+  border-radius: 20rem;
 }
 
 .fa-location-dot {
@@ -113,12 +115,27 @@
   margin-left: 1.875rem;
 }
 
+.fa-user,
+.fa-dog,
+.fa-paw {
+  margin-right: 10px;
+}
+
 #user_image {
   width: 9.375rem;
   height: 9.375rem;
   object-fit: cover;
   background-color: #f8f5f2;
   border-radius: 50%;
+}
+
+.withdraw-user-info {
+  text-align: center;
+}
+
+.withdraw-user-info img {
+  margin: 10px auto;
+  width: 100px;
 }
 
 .contributor-comment {
