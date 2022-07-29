@@ -1,7 +1,7 @@
 <div class="flash-message"><%= flash[:delete_alert] %></div>
 <div class="spot-details-wrapper">
   <div class="top-wrapper">
-    <h2 class="spot-name"><%= @spot.name %></h2>
+    <p class="spot-name"><%= @spot.name %></p>
     <% if current_user == @spot.user %>
       <div class="contributor-btn">
         <%= link_to "Edit",edit_spot_path(@spot), class:"edit btn"%>

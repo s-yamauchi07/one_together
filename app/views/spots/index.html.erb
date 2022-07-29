@@ -39,10 +39,12 @@
   <div class="tag-search">
     <% if @tags.present? %>
       <h2>タグで検索</h2>
-      <% @tags.each do |tag|%>
-      <%# タグから検索できるように下記を編集する %>
-        <%= link_to tag.tag_name, search_spots_path(q: {tags_id_eq: tag.id}), class:"tag_name"%>
-      <% end %>
+      <div class="tag-lists">
+        <% @tags.each do |tag|%>
+        <%# タグから検索できるように下記を編集する %>
+          <%= link_to tag.tag_name, search_spots_path(q: {tags_id_eq: tag.id}), class:"tag_name"%>
+        <% end %>
+      </div>
     <% end %>
   </div>
 
